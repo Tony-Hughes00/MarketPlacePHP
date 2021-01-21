@@ -1,0 +1,118 @@
+<?php
+
+namespace Core\Auth;
+
+/**
+ * Setup DB and user interaction
+ * @package Core\Auth
+ */
+class DbAuth {
+
+	private object $db;
+
+    public function __construct(object $db) {
+		$this->db = $db;
+	}
+	
+	/**
+	 * Get the user id from SESSION if exist
+	 *
+	 * @return mixed|bool
+	 */
+	public function getUserId() {
+		if ($this->logged()) {
+			return $_SESSION['transport-solidaire']['id'];
+		}
+		return false;
+	}
+
+	/**
+	 * Login to the site
+	 *
+	 * @param string $username
+	 * @param string $password
+	 * @return boolean
+	 */
+	public function login(string $email, string $password) :bool {
+		$user = $this->db->prepare("SELECT membres.*, adresses.*, users.*
+            FROM ((membres
+            INNER JOIN adresses ON membres.adresse = adresses.id)
+            INNER JOIN users ON membres.users_id = users.id)
+            WHERE users.email = :email",
+		['email' => $email],
+		null,
+		true);
+
+		if ($user) {
+			if (password_verify($password, $user->mdp)) {
+				if (isset($_POST['remember'])) {
+					// TODO consentement cookies
+					// if (isset($_COOKIE['cookieconsent_status'] ) && $_COOKIE['cookieconsent_status'] === 'allow') {
+						setcookie('rememberMe', $user->email, time() + 60 * 60 * 24 * 7);
+					// }
+				}
+				foreach ($user as $key => $value) {
+					if ($key != 'mdp') {
+						$_SESSION['transport-solidaire'][$key] = $value;
+					}
+				}
+				
+				return true;
+			}
+		} else {
+			header('location: ' . ROUTE . 'connexion', true, 303);
+		}
+
+		return false;
+	}
+
+	/**
+	 * Login to the back office
+	 *
+	 * @param string $username
+	 * @param string $password
+	 * @return boolean
+	 */
+	public function loginPNM(string $email, string $password) :bool {
+		$user = $this->db->prepare("SELECT techniciens.*, users.*
+            FROM (techniciens
+            INNER JOIN users ON techniciens.users_id = users.id)
+            WHERE users.email = :email",
+		['email' => $email],
+		null,
+		true);
+
+		if ($user) {
+			if (password_verify($password, $user->mdp)) {
+				if (isset($_POST['remember'])) {
+					// TODO consentement cookies
+					// if (isset($_COOKIE['cookieconsent_status'] ) && $_COOKIE['cookieconsent_status'] === 'allow') {
+						setcookie('rememberMe', $user->email, time() + 60 * 60 * 24 * 7);
+					// }
+				}
+
+				foreach ($user as $key => $value) {
+					if ($key != 'mdp') {
+						$_SESSION['transport-solidaire'][$key] = $value;
+					}
+				}
+				
+				return true;
+			}
+		} else {
+			header('location: ' . ROUTE . 'connexion', true, 303);
+		}
+
+		return false;
+	}
+
+	/**
+	 * Return the session if exist
+	 *
+	 * @return bool
+	 */
+	public function logged() :?bool {
+		return isset($_SESSION['transport-solidaire']);
+	}
+
+}
