@@ -95,8 +95,8 @@ if (!isset($_COOKIE['animWatched'])) {
             <header class="row">
                 <div class="col-md-2 text-center my-auto">
                     <a href="<?=ROUTE?>">
-                        <img class="logo-hdr" src="<?= RACINE ?>images/logo-antennes-icon.png"
-                            alt="Logo Antennes Sud Charente Mobilité Icône">
+                        <img class="logo-hdr" src="<?= RACINE ?>images/MarketIcon.jpg"
+                            alt="Logo MarketPlace">
                     </a>
                 </div>
 

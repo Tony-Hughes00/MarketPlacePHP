@@ -22,7 +22,7 @@ if (php_sapi_name() === 'cli-server') {
     define('RACINE', 'public/');
 } else {
     $route = explode('/', dirname(__DIR__));
-    define('RACINE', '/public/');
+    define('RACINE', 'public/');
     define('ROUTE', '/');
     // define('RACINE', '/' . end($route) . '/public/');
     // define('ROUTE', '/' . end($route) . '/');
