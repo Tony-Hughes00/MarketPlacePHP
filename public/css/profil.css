@@ -1,0 +1,163 @@
+@charset "utf-8";
+
+#profil {
+    text-align: center;
+    position: relative;
+    margin-top: 20px;
+}
+
+#profil fieldset .form-card {
+    /* background: whitesmoke; */
+    background: whitesmoke;
+    border: 0 none;
+    border-radius: 0px;
+    box-shadow: 0 2px 2px 2px rgba(0, 0, 0, 0.2);
+    padding: 20px 40px 30px 40px;
+    box-sizing: border-box;
+    width: 94%;
+    margin: 0 3% 20px 3%;
+    position: relative
+}
+
+#profil fieldset {
+    /* background: white; */
+    border: 0 none;
+    border-radius: 0.5rem;
+    box-sizing: border-box;
+    width: 100%;
+    margin: 0;
+    /* padding-bottom: 20px; */
+    position: relative
+}
+
+#profil fieldset:not(:first-of-type) {
+    display: none
+}
+
+#profil fieldset .form-card {
+    text-align: left;
+    /* color: #9E9E9E; */
+    color: #888;
+}
+
+#profil label {
+    margin-bottom: 0;
+}
+
+#profil input,
+#profil textarea {
+    padding: 0px 8px 4px 8px;
+    border: none;
+    /* border-bottom: 1px solid #ccc; */
+    border-bottom: 3px solid skyblue;
+    border-radius: 0px;
+    /* margin-bottom: 25px; */
+    margin-top: 2px;
+    width: 100%;
+    box-sizing: border-box;
+    /* font-family: montserrat; */
+    color: #2C3E50;
+    font-size: 16px;
+    /* letter-spacing: 1px; */
+    transition: all 100ms ease;
+}
+
+#profil input:focus,
+#profil textarea:focus {
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    border: none;
+    font-weight: bold;
+    border-bottom: 3px solid skyblue;
+    outline-width: 0;
+    transition: all 100ms ease;
+}
+
+#profil input:valid,
+#profil textarea:valid {
+    /* border-bottom: 3px solid #9ac526; */
+    border-bottom: 3px solid #9ac526;
+    transition: all 100ms ease;
+}
+
+#profil .radio-label {
+    color: #2C3E50;
+}
+
+#profil input#ins_nom {
+    text-transform: uppercase;
+}
+
+#profil input#ins_prenom {
+    text-transform: capitalize;
+}
+
+#profil .action-button {
+    width: 200px;
+    background: skyblue;
+    font-weight: bold;
+    color: white;
+    /* border: 0 none; */
+    border-bottom: 3px solid #2C3E50;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 10px 5px;
+    /* margin: 0 5px; */
+}
+
+/* #profil .action-button:hover,
+#profil .action-button:focus {
+    box-shadow: 0 0 0 2px white, 0 0 0 3px skyblue
+} */
+
+/* #profil .action-button-previous {
+    width: 200px;
+    background: #616161;
+    font-weight: bold;
+    color: white;
+    border: 0 none;
+    border-bottom: 3px solid #000;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 10px 5px;
+    margin: 10px 5px
+} */
+
+/* #profil .action-button-previous:hover,
+#profil .action-button-previous:focus {
+    box-shadow: 0 0 0 2px white, 0 0 0 3px #616161
+} */
+
+#profil input[type=submit] {
+    width: 100%;
+    background: var(--green-title-underline);
+    border-bottom: 3px solid #2e502c;
+}
+
+#profil input[type=submit]:disabled {
+    background: #888;
+    border-bottom: 3px solid #333;
+    opacity: 0.5;
+}
+
+/* Profil */
+#profil #progressbar #form-step-1:before {
+    font-family: "Font Awesome 5 Free";
+    content: "\f007";
+    font-weight: 900;
+}
+
+/* Dossier */
+#profil #progressbar #form-step-2:before {
+    font-family: "Font Awesome 5 Free";
+    content: "\f1c1";
+    font-weight: 900;
+}
+
+/* Déplacements */
+#profil #progressbar #form-step-3:before {
+    font-family: "Font Awesome 5 Free";
+    content: "\f5e4";
+    font-weight: 900;
+}

@@ -1,8 +1,8 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top shadow p-3 mb-5 rounded">
     <a class="navbar-brand" href="<?=ROUTE?>">
         <?php // <img class="logo-txt" style="max-height: 40px;" src="./assets/images/logo-MOSC-2.PNG"> ?>
-        <img class="logo-nav" src="<?= RACINE ?>images/MarketIcon.jpg"
-            alt="Logo MarketPlace">
+        <img class="logo-nav" src="<?= RACINE ?>images/logo-antennes-text.png"
+            alt="Logo Antennes Sud Charente Mobilité Texte">
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse"
         data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -20,7 +20,7 @@
                     aria-haspopup="true" aria-expanded="false">COMMENT ÇA FONCTIONNE ?
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown1" style="font-size:20px;">
-                    <a class="dropdown-item" href="<?=ROUTE?>test">Test</a>
+                    <a class="dropdown-item" href="<?=ROUTE?>fonctionnement">Le Transport Solidaire</a>
                     <a class="dropdown-item" href="<?=ROUTE?>chauffeur">Devenir Chauffeur Bénévole</a>
                     <a class="dropdown-item" href="<?=ROUTE?>passager">Devenir Passager</a>
                 </div>

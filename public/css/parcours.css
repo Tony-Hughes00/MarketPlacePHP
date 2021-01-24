@@ -1,0 +1,147 @@
+.parcoursBox {
+  padding: 25px;
+  width:95%;
+  margin: auto;
+  border: 1px solid #17a2b8;
+  box-shadow: 5px 10px #555555;
+}
+.parcoursBoxMis {
+  padding: 25px;
+  width:90%;
+  margin: auto;
+  border: 1px solid #17a2b8;
+  box-shadow: 5px 10px #555555;
+}
+.parcoursValue {
+  font-style: normal;
+  color: black;
+  margin-bottom: 0rem;
+  width: auto;
+}
+.parcoursStrong{
+  font-weight: bold;
+}
+.parcoursConsultDate{
+  font-size: 0.9rem;
+  font-weight: normal;
+}
+.parcoursSmall{
+  font-size: 0.8rem;
+  font-style: italic;
+}
+.parcoursLabel {
+  font-style: italic;
+  margin-bottom: 0rem;
+  width: auto;
+  /* color: #17a2b8; */
+}
+.parcoursLabelRight {
+  font-style: italic;
+  text-align: right;
+  color: #17a2b8;
+}
+.parcoursBoxTitre {
+  color: #17a2b8;
+  padding: 25px;
+  width:95%;
+  margin: auto;
+  border: 1px solid #17a2b8;
+  box-shadow: 5px 10px #555555;
+}
+.parcoursLegend {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.carteLegend {
+  color: #17a2b8;
+  position: relative;
+  left: 30px;
+  top: 15px;
+  background-color: #f8f9fa;
+  width: auto;
+  display: inline-block;
+  padding-top:0px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-top: -10px;
+  font-style: italic;
+  font-size: 24px;
+}
+.parcoursBoxBody {
+  color: black;
+}
+.parcoursDetail {
+  margin-bottom:10px;
+}
+.parcoursTitre {
+  color: #17a2b8;
+  padding: 25px; 
+
+
+}
+.parcoursPaddingContent {
+  padding:5px;
+}
+.parcoursPaddingInfo {
+  padding-top:20px;
+}
+.parcoursBtn {
+  margin-top:20px;
+  margin-bottom:20px;
+  padding:20px;
+}
+.parcoursValidationCheck{
+  font-style: italic;
+  font-weight: bold;
+  font-size: 1.5rem;
+  width: auto;
+  color: #17a2b8;
+}
+.parcoursRequired {
+  background-color: #f7b5b5;
+}
+.parcoursBackGround {
+  background-color: #e1ed62;
+}
+.parcoursDispo {
+  margin-bottom: 5px;
+}
+.carteLegendDiv {
+  text-align: right;
+  padding-right: 0px;
+}
+.carteLegendIndex {
+  border-radius: 50%;
+  font-size: 0.5rem;
+  min-width: 15px;
+  max-width: 15px;
+  height: 15px;
+  position: absolute;
+  right: 0px;
+  margin-top: 10px;
+}
+.carteLegendRelation {
+  font-size: 0.5rem;
+  width: 25px;
+  height: 5px;
+  position: absolute;
+  right: 0px;
+  margin-top: 10px;  
+}
+.carteLegendOffert {
+  background-color: red;
+  border: 2px solid red;
+}
+.carteLegendDemande {
+  background-color: green;
+  border: 2px solid green;
+}
+.carteLegendDispo {
+  background-color: yellow;
+  border: 2px solid yellow;
+}
+.carteLegendText {
+  text-align: left;
+  font-size: 1rem;
+  padding-top: 3px;
+}
