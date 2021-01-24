@@ -28,6 +28,7 @@ if (!isset($_COOKIE['animWatched'])) {
     <link href="https://cdn.jsdelivr.net/npm/smartwizard@5/dist/css/smart_wizard_all.min.css" rel="stylesheet"
         type="text/css" />
     <!-- Custom Style CSS -->
+    <link rel="stylesheet" href="<?= RACINE ?>css/backoffice.css">
     <link rel="stylesheet" href="<?= RACINE ?>css/style.css">
     <link rel="stylesheet" href="<?= RACINE ?>css/profil.css">
     <link rel="stylesheet" href="<?= RACINE ?>css/parcours.css">

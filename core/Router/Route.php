@@ -78,6 +78,11 @@ class Route {
                 $action = $params[2];
                 $controller = new $controller;
                 $controller->$action();
+            } else if ($params[0] === 'backoffice') {
+                $controller = 'App\\Controller\\backoffice\\' . ucfirst($params[1]) . 'Controller';
+                $action = $params[2];
+                $controller = new $controller;
+                $controller->$action();
             } else {
                 $controller = 'App\\Controller\\' . ucfirst($params[0]) . 'Controller';
                 $action = $params[1];

@@ -37,12 +37,13 @@ App::load();
 $router = new Router($url);
 
 // $router->method('/render_url_rewriting', 'controller.function');
-
+ 
 $router->get('/', 'index.index');
 $router->get('/test', 'api.test.get');
 $router->post('/test', 'api.test.post');
 $router->option('/', 'api.test.index');
 
-$router->get('/insProprietaire', 'api.insProprietaire.index');
+$router->get('/insProprietaire', 'backoffice.insProprietaire.get');
+$router->post('/insProprietaire', 'backoffice.insProprietaire.post');
 
 $router->run();

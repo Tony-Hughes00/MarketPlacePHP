@@ -2,7 +2,7 @@
  * Formulaire - Smart Wizard
  */
 $(document).ready(function () {
-    $('#form-ins').smartWizard({
+    $('#form-backoffice').smartWizard({
         selected: 0, // Initial selected step, 0 = first step
         theme: 'default', // theme for the wizard, related css need to include for other than default theme
         justified: true, // Nav menu justification. true/false
@@ -107,7 +107,7 @@ $(document).ready(function () {
 
     // Activer le bouton via clic, touche ou souris si les champs sont valides
     for (let i = 1; i < $('.step').length; i++) {
-        $('#form-ins #step-' + i).on('click keyup mousemove', checkInputs);
+        $('#form-backoffice #step-' + i).on('click keyup mousemove', checkInputs);
         function checkInputs() {
             if ($('#step-' + i + ' input').valid()) {
                 $('.sw-btn-next').prop('disabled', false);
@@ -119,7 +119,7 @@ $(document).ready(function () {
 
     // Désactiver le bouton lorsque l'on quitte une étape
     for (let i = 1; i < $('.step').length; i++) {
-        $('#form-ins').on('leaveStep', checkInputs);
+        $('#form-backoffice').on('leaveStep', checkInputs);
         function checkInputs() {
             if ($('#step-' + (i + 1) + ' input').valid()) {
                 $('.sw-btn-next').prop('disabled', true);
@@ -203,8 +203,8 @@ $(document).ready(function () {
 
     let step = $('.step');
     let stepLength = step.length;
-    let finalStep = $('#form-ins #step-' + stepLength);
-    let finalStepInputs = $('#form-ins #step-' + stepLength + ' input');
+    let finalStep = $('#form-backoffice #step-' + stepLength);
+    let finalStepInputs = $('#form-backoffice #step-' + stepLength + ' input');
 
     if (step.last()) {
         finalStep.on('click keyup mousemove', activateSubmit);

@@ -54,7 +54,7 @@
 
             <div class="dropdown-menu dropdown-menu-lg-right" style="min-width: 15rem!important;">   
 
-                <?php if (!isset($_SESSION['transport-solidaire'])) { ?>
+                <?php if (!isset($_SESSION['MarketPlace'])) { ?>
                     <!-- --------------- -->
                     <!-- SI PAS CONNECTE -->
                     <!-- --------------- -->
@@ -93,7 +93,7 @@
                     </form>
                     
                     <hr>
-                    <a class="dropdown-item" href="<?= ROUTE ?>inscription"><i class="fas fa-sign-in-alt">&nbsp;&nbsp;</i>Vous n'êtes pas encore inscrit ?</a>
+                    <a class="dropdown-item" href="<?= ROUTE ?>insProprietaire"><i class="fas fa-sign-in-alt">&nbsp;&nbsp;</i>Vous n'êtes pas encore inscrit ?</a>
                     <a class="dropdown-item" href="<?= ROUTE ?>request"> <i class="fas fa-user-lock">&nbsp;&nbsp;</i>Mot de passe oublié ?</a>                    
                 <?php } else if (isset($_SESSION['transport-solidaire']['membre_type']) || isset($_SESSION['transport-solidaire']['statut'])) { ?>
                     <!-- ----------- -->

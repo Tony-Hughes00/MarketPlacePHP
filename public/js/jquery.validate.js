@@ -20,7 +20,7 @@ $(document).ready(function () {
      * Règles de validation : Formulaire d'inscription
      * inscription.php
      */
-    $('#form-ins').validate({
+    $('#form-backoffice').validate({
         rules: {
             // STEP 1
             ins_type: {
@@ -64,10 +64,10 @@ $(document).ready(function () {
                 // lettersonly: true
             },
             ins_date_nais: {
-                required: true
+                required: false
             },
             ins_lieu_nais: {
-                required: true
+                required: false
             },
 
             // STEP 3
@@ -78,13 +78,13 @@ $(document).ready(function () {
                 required: false
             },
             ins_adresse: {
-                required: true
+                required: false
             },
             ins_cp: {
-                required: true
+                required: false
             },
             ins_commune: {
-                required: true
+                required: false
             }
         },
         messages: {
@@ -130,11 +130,13 @@ $(document).ready(function () {
                 // lettersonly: "Lettres seulement"
             },
             ins_date_nais: {
-                required: "Ce champ est obligatoire"
+                required: false
+                // required: "Ce champ est obligatoire"
             },
             ins_lieu_nais: {
-                required: "Ce champ est obligatoire"
-            },
+                required: false
+                 // required: "Ce champ est obligatoire"
+                },
 
             // STEP 3
             ins_tel_dom: {
@@ -144,13 +146,16 @@ $(document).ready(function () {
                 required: false
             },
             ins_adresse: {
-                required: "Ce champ est obligatoire"
+                required: false
+                // required: "Ce champ est obligatoire"
             },
             ins_cp: {
-                required: "Ce champ est obligatoire"
+                required: false
+                // required: "Ce champ est obligatoire"
             },
             ins_commune: {
-                required: "Ce champ est obligatoire"
+                required: false
+                // required: "Ce champ est obligatoire"
             }
         }
     });
