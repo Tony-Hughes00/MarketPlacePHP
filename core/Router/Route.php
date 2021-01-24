@@ -73,6 +73,11 @@ class Route {
                 $action = $params[2];
                 $controller = new $controller;
                 $controller->$action();
+            } else if ($params[0] === 'api') {
+                $controller = 'App\\Controller\\Api\\' . ucfirst($params[1]) . 'Controller';
+                $action = $params[2];
+                $controller = new $controller;
+                $controller->$action();
             } else {
                 $controller = 'App\\Controller\\' . ucfirst($params[0]) . 'Controller';
                 $action = $params[1];

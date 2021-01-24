@@ -29,7 +29,17 @@ class Router {
     public function get(string $path, $callable, $name = null) :object {
         return $this->add($path, $callable, $name, 'GET');
     }
-
+    /**
+     * Get the page for an request method GET
+     *
+     * @param string $path
+     * @param string $callable
+     * @param string $name
+     * @return object
+     */
+    public function option(string $path, $callable, $name = null) :object {
+        return $this->add($path, $callable, $name, 'OPTION');
+    }
     /**
      * Get the page for an request method POST
      *
@@ -41,7 +51,12 @@ class Router {
     public function post(string $path, $callable, $name = null) :object {
         return $this->add($path, $callable, $name, 'POST');
     }
-
+    // public function options() {
+    //     header("Access-Control-Allow-Credentials:true");
+    //     header("Access-Control-Allow-Origin", "*");
+    //     header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, authorization");
+    //     header("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
+    // }
     /**
      * Add the route to named routes
      *
@@ -78,5 +93,6 @@ class Router {
         $controller = new AppController();
         $controller->notFound();
     }
+
 
 }

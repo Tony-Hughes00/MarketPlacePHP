@@ -49,9 +49,9 @@ if (!isset($_COOKIE['animWatched'])) {
         {
             "@context": "https://schema.org",
             "@type": "Organization",
-            "name": "Transport Solidaire en Sud Charente",
+            "name": "MarketPlace",
             // "legalName" : "À DÉFINIR",
-            "url": "http://localhost/transport-solidaire/index.php",
+            "url": "http://localhost/MarketPlace/index.php",
             "logo": "assets/images/Antenne_de_mobilite-Sud-Charente.jpg",
             "foundingDate": "2020",
             "founders": [{

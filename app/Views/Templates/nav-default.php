@@ -20,7 +20,7 @@
                     aria-haspopup="true" aria-expanded="false">COMMENT ÇA FONCTIONNE ?
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown1" style="font-size:20px;">
-                    <a class="dropdown-item" href="<?=ROUTE?>fonctionnement">Le Transport Solidaire</a>
+                    <a class="dropdown-item" href="<?=ROUTE?>test">Test</a>
                     <a class="dropdown-item" href="<?=ROUTE?>chauffeur">Devenir Chauffeur Bénévole</a>
                     <a class="dropdown-item" href="<?=ROUTE?>passager">Devenir Passager</a>
                 </div>

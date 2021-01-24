@@ -102,8 +102,7 @@ if (!isset($_COOKIE['animWatched'])) {
 
                 <div class="col-md-8 text-center">
                     <a href="<?=ROUTE?>" style="text-decoration:none;">
-                        <h1 class="text-danger">Le Réseau de&nbsp<br class="d-inline d-sm-none">Transport
-                            Solidaire<br>en Sud Charente</h1>
+                        <h1 class="text-danger">MarketPlace</h1>
                         <?php // <img src="./assets/images/logo-mobilite-ouest-sud-charente.png" height=70px;> ?>
                     </a>
                     <?php // <img class="percent80" src="./assets/images/Transport Solidaire.PNG"> ?>
