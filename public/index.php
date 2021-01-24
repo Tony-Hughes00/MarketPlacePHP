@@ -43,4 +43,6 @@ $router->get('/test', 'api.test.get');
 $router->post('/test', 'api.test.post');
 $router->option('/', 'api.test.index');
 
+$router->get('/insProprietaire', 'api.insProprietaire.index');
+
 $router->run();
