@@ -6,9 +6,9 @@
 
 - **Travailler sur le dossier en local :**<br>
     - Dans VS Code, ouvrir un nouveau terminal, se placer dans "www" et entrer :<br>
-    - ``git clone https://github.com/LoicChampaloux/transport-solidaire.git``<br>
+    - ``git clone https://github.com/Tony-Hughes00/MarketPlacePHP.git``<br>
 - **Créer puis travailler sur sa branche :**<br>
-    - Dans VS Code, ouvrir un nouveau terminal, se placer dans "transport-solidaire" et entrer :<br>
+    - Dans VS Code, ouvrir un nouveau terminal, se placer dans "marketplace" et entrer :<br>
     - ``git branch chloe``<br>
     - ``git chekout chloe``<br>
 - **Envoyer ses modifications sur GitHub :**<br>
@@ -31,7 +31,7 @@
 
 - **Dans VS Code**, ouvrir un terminal en ayant le dossier "www" ouvert
 - **Bien vérifier qu'on est dans "www" en ligne de commande** (par exemple ``D:\Programmes\wamp64\www>``, on est bien dans le dossier "www" de Wamp)
-- ``git clone https://github.com/LoicChampaloux/transport-solidaire.git``
+- ``git clone https://github.com/Tony-Hughes00/MarketPlacePHP.git``
 
 **Explications :**<br>
 Le dossier va se cloner directement dans "www" avec, à l'intérieur, un dossier de configuration invisible ".git" nécessaire pour lier le dossier au repository sur Git.<br>
@@ -86,7 +86,7 @@ On prendra en compte la hiérarchie suivante : chloe -> origin chloe -> origin m
 - **Sur GitHub** directement, créer un nouveau repository
 - Créer un nouveau dossier **dans le dossier "www"** qui va être associé au repository
 - **Dans VS Code**, ouvrir un terminal en ayant le nouveau dossier ouvert
-- ``git remote add origin https://github.com/LoicChampaloux/transport-solidaire.git``
+- ``git remote add origin https://github.com/Tony-Hughes00/MarketPlacePHP.git``
 - ``git push -u origin master``
 
 ---

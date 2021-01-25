@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\BackOffice;
 use App;
-use App\Controller\AppController;
+use App\Controller\BackOffice\AppBackOfficeController;
 use Core\Entity;
 
-class ConnexionController extends AppController {
+class ConnexionController extends AppBackOfficeController {
 
     public function __construct() {
         parent::__construct();
@@ -17,12 +17,12 @@ class ConnexionController extends AppController {
      * @return void
      */
     public function index() {
-        // App::getInstance()->title = 'Connexion' .  App::getInstance()->title;
-        $this->Titre('Connexion');
+        App::getInstance()->title = 'Connexion' .  App::getInstance()->title;
+
         // Redirect to profile/dashboard page if user is logged
-        if ($this->auth->logged() && isset($_SESSION['transport-solidaire']['membre_type'])) {
+        if ($this->auth->logged() && isset($_SESSION['marketplace']['user_type'])) {
             header('location: ' . ROUTE . 'profil', true, 303);
-        } else if ($this->auth->logged() && isset($_SESSION['transport-solidaire']['statut'])) {
+        } else if ($this->auth->logged() && isset($_SESSION['marketplace']['statut'])) {
             header('location: ' . ROUTE . 'Tdb', true, 303);
         }
 
@@ -38,27 +38,14 @@ class ConnexionController extends AppController {
     public function connexion() {
         // Authenticate the user
         $login = $this->auth->login($_POST['con_email'], $_POST['con_mdp']);
+        $loginPNM = $this->auth->loginPNM($_POST['con_email'], $_POST['con_mdp']);
 
         // Redirect to profile/dashboard page if user is a member/technician
-        if ($login && isset($_SESSION['marketplace']['membre_type'])) {
-            header('location: ' . ROUTE . 'backoffice.profil', true, 303);
+        if ($login && isset($_SESSION['marketplace']['user_type'])) {
+            header('location: ' . ROUTE . 'profil', true, 303);
         } else if ($loginPNM && isset($_SESSION['marketplace']['statut'])) {
             header('location: ' . ROUTE . 'Tdb', true, 303);
-            var_dump("tdb");
         }
-    }
-        /**
-     * Function logout and redirect to home page
-     * 
-     * @return void
-     */
-    public function logout() {
-        if (isset($_COOKIE['rememberMe'])) {
-            unset($_COOKIE['rememberMe']);
-            setcookie('rememberMe', null, time() - 3600);
-        }
-        unset($_SESSION['marketplace']);
-        header('location: ' . ROUTE, true, 303);
     }
 
 }

@@ -52,18 +52,18 @@ class AppAdminController extends Controller {
 	public function forbidden() :string {
         App::getInstance()->title = 'Accès refusé' .  App::getInstance()->title;
         header($_SERVER['SERVER_PROTOCOL'] . ' 403 Forbidden');
-        (isset($_SESSION['transport-solidaire']['statut'])) ? $this->template = 'technicien' : $this->template = 'default';
+        (isset($_SESSION['marketplace']['statut'])) ? $this->template = 'technicien' : $this->template = 'default';
         $this->render('errors.403');
     }
 
     public function isAdmin() {
-        if (!isset($_SESSION['transport-solidaire']['statut']) || $_SESSION['transport-solidaire']['statut'] != 'admin') {
+        if (!isset($_SESSION['marketplace']['statut']) || $_SESSION['marketplace']['statut'] != 'admin') {
             $this->forbidden();
         }
     }
 
     public function isConseiller() {
-        if (!isset($_SESSION['transport-solidaire']['statut'])) {
+        if (!isset($_SESSION['marketplace']['statut'])) {
             $this->forbidden();
         }
     }

@@ -83,7 +83,7 @@
         </ul>
       
     </div>
-    <?php if (isset($_SESSION['transport-solidaire']['membre_type']) || isset($_SESSION['transport-solidaire']['statut'])) { ?>
+    <?php if (isset($_SESSION['marketplace']['user_type']) || isset($_SESSION['marketplace']['statut'])) { ?>
         <!-- ----------- -->
         <!-- SI CONNECTE -->
         <!-- ----------- -->

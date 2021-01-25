@@ -21,7 +21,7 @@ class DbAuth {
 	 */
 	public function getUserId() {
 		if ($this->logged()) {
-			return $_SESSION['transport-solidaire']['id'];
+			return $_SESSION['marketplace']['id'];
 		}
 		return false;
 	}
@@ -45,13 +45,13 @@ class DbAuth {
 			if (password_verify($password, $user->mdp)) {
 				if (isset($_POST['remember'])) {
 					// TODO consentement cookies
-					// if (isset($_COOKIE['cookieconsent_status'] ) && $_COOKIE['cookieconsent_status'] === 'allow') {
+					if (isset($_COOKIE['cookieconsent_status'] ) && $_COOKIE['cookieconsent_status'] === 'allow') {
 						setcookie('rememberMe', $user->email, time() + 60 * 60 * 24 * 7);
-					// }
+					}
 				}
 				foreach ($user as $key => $value) {
 					if ($key != 'mdp') {
-						$_SESSION['transport-solidaire'][$key] = $value;
+						$_SESSION['marketplace'][$key] = $value;
 					}
 				}
 				
@@ -84,14 +84,14 @@ class DbAuth {
 			if (password_verify($password, $user->mdp)) {
 				if (isset($_POST['remember'])) {
 					// TODO consentement cookies
-					// if (isset($_COOKIE['cookieconsent_status'] ) && $_COOKIE['cookieconsent_status'] === 'allow') {
+					if (isset($_COOKIE['cookieconsent_status'] ) && $_COOKIE['cookieconsent_status'] === 'allow') {
 						setcookie('rememberMe', $user->email, time() + 60 * 60 * 24 * 7);
-					// }
+					}
 				}
 
 				foreach ($user as $key => $value) {
 					if ($key != 'mdp') {
-						$_SESSION['transport-solidaire'][$key] = $value;
+						$_SESSION['marketplace'][$key] = $value;
 					}
 				}
 				

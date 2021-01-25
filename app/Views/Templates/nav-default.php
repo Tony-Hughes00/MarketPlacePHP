@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top shadow p-3 mb-5 rounded">
     <a class="navbar-brand" href="<?=ROUTE?>">
         <?php // <img class="logo-txt" style="max-height: 40px;" src="./assets/images/logo-MOSC-2.PNG"> ?>
-        <img class="logo-nav" src="<?= RACINE ?>images/logo-antennes-text.png"
+        <img class="logo-nav" src="<?= RACINE ?>images/MarketIcon.jpg"
             alt="Logo Antennes Sud Charente Mobilité Texte">
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -95,7 +95,7 @@
                     <hr>
                     <a class="dropdown-item" href="<?= ROUTE ?>insProprietaire"><i class="fas fa-sign-in-alt">&nbsp;&nbsp;</i>Vous n'êtes pas encore inscrit ?</a>
                     <a class="dropdown-item" href="<?= ROUTE ?>request"> <i class="fas fa-user-lock">&nbsp;&nbsp;</i>Mot de passe oublié ?</a>                    
-                <?php } else if (isset($_SESSION['transport-solidaire']['membre_type']) || isset($_SESSION['transport-solidaire']['statut'])) { ?>
+                <?php } else if (isset($_SESSION['marketplace']['user_type']) || isset($_SESSION['marketplace']['statut'])) { ?>
                     <!-- ----------- -->
                     <!-- SI CONNECTE -->
                     <!-- ----------- -->

@@ -31,11 +31,11 @@
     <?php } ?>
 
     <!-- Bouton Connexion ou Espace -->
-    <?php if (isset($_SESSION['transport-solidaire']['statut'])) { ?>
+    <?php if (isset($_SESSION['marketplace']['statut'])) { ?>
         <div class="col-2 mb-3 text-center">
             <a class="btn btn-primary border-primary" href="<?=ROUTE?>Tdb"><i class="fas fa-user"></i> Espace</a>
         </div>
-    <?php } else if (isset($_SESSION['transport-solidaire']['membre_type'])) { ?>
+    <?php } else if (isset($_SESSION['marketplace']['user_type'])) { ?>
         <div class="col-2 mb-3 text-center">
             <a class="btn btn-primary border-primary" href="<?=ROUTE?>profil"><i class="fas fa-user"></i> Profil</a>
         </div>
