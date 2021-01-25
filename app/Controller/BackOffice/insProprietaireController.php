@@ -1,10 +1,10 @@
 <?php
 namespace App\Controller\BackOffice;
 use App;
-use App\Controller\Admin\AppAdminController;
+use App\Controller\BackOffice\AppBackOfficeController;
 use Core\Entity;
 
-class InsProprietaireController extends AppAdminController {
+class InsProprietaireController extends AppBackOfficeController {
 
     public function __construct() {
         parent::__construct();
@@ -21,6 +21,10 @@ class InsProprietaireController extends AppAdminController {
 
       $explodeURI = explode('.', $_SERVER['REQUEST_URI']);
       $userType = end($explodeURI);
+    //   echo "$this->template";
+    //   var_dump($this->template);
+    //   var_dump($this->viewPath);
+    //   var_dump($_SERVER['PHP_SELF']);
 
       $this->render('BackOffice.inscription', compact('userType'));
     }

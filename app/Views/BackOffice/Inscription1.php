@@ -284,8 +284,8 @@
                                                 <!-- COMMUNE -->
                                                 <div class="col-md-8 mb-5">
                                                     <label for="ins_commune">Commune : </label>
-                                                    <select style="width:100%" id="ins_commune" name="ins_commune"
-                                                            class="form-control p-2" required
+                                                    <select style="width:100%" id="ins_commune" name="ins_commune" class="p-2"
+                                                            class="form-control" required
                                                             onchange="onSelectCommune(this)">
                                                         <?php
                                                             $loadCommune = App::getInstance()->getTable('Commune');

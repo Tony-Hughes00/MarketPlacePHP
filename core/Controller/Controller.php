@@ -18,11 +18,20 @@ class Controller {
 	 * @return string
 	 */
 	protected function render(string $view, array $vars = []) :string {
+		// var_dump($view);
 		ob_start();
+		// var_dump('ob_start');
 		extract($vars);
+		// var_dump($vars);
+		// var_dump($this->viewPath . str_replace('.', '/', $view) . '.php');
 		require($this->viewPath . str_replace('.', '/', $view) . '.php');
+		// var_dump($this->viewPath);
 		$getPage = str_replace(".php", "", basename($_SERVER['PHP_SELF']));
+		// var_dump($getPage);
 		$content = ob_get_clean();
+		// var_dump($content);
+		// var_dump($this->viewPath . 'Templates/' . $this->template . '.php');
+
 		require($this->viewPath . 'Templates/' . $this->template . '.php');
 		die();
 	}

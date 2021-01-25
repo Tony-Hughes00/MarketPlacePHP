@@ -3,7 +3,6 @@ if (!isset($_COOKIE['animWatched'])) {
     setcookie("animWatched", "1", time()+60*60*24*100);
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
 
@@ -102,7 +101,7 @@ if (!isset($_COOKIE['animWatched'])) {
 
                 <div class="col-md-8 text-center">
                     <a href="<?=ROUTE?>" style="text-decoration:none;">
-                        <h1 class="text-danger">MarketPlace</h1>
+                        <h1 class="text-danger">MarketPlace default</h1>
                         <?php // <img src="./assets/images/logo-mobilite-ouest-sud-charente.png" height=70px;> ?>
                     </a>
                     <?php // <img class="percent80" src="./assets/images/Transport Solidaire.PNG"> ?>
@@ -164,7 +163,7 @@ if (!isset($_COOKIE['animWatched'])) {
                                         style="max-width:250px;" class="contact-logo img-fluid mb-3">
                                     <br>
                                     Siège Social
-                                </a>
+                                </a></b>
                         </div>
 
                         <span class="footer-pnm-adr">
@@ -319,9 +318,9 @@ function getDispoJour($dispo) {
     return "Fermé";
 }
 ?>
-                <div id="myModal2" class="modal fade" role="dialog">
+                <!-- <div id="myModal2" class="modal fade" role="dialog">
                     <div class="modal-dialog">
-                        <?php // Modal content
+                        < ?php // Modal content
                         $dispos = getDispos(43);
                         ?>
                         <div class="modal-content">
@@ -332,19 +331,19 @@ function getDispoJour($dispo) {
                                 <h4> Pôle Numérique du Château: </h4>
                                 à Barbezieux St Hilaire<br><br>
                                 <h5> <u>Horaires et jours d'ouverture : </u></h5>
-                                Lundi : <?php echo getDispoJour($dispos[1])?><br>
-                                Mardi : <?php echo getDispoJour($dispos[2])?><br>
-                                Mercredi : <?php echo getDispoJour($dispos[3])?><br>
-                                Jeudi : <?php echo getDispoJour($dispos[4])?><br>
-                                Vendredi : <?php echo getDispoJour($dispos[5])?><br>
-                                Samedi : <?php echo getDispoJour($dispos[6])?><br>
+                                Lundi : < ?php echo getDispoJour($dispos[1])?><br>
+                                Mardi : < ?php echo getDispoJour($dispos[2])?><br>
+                                Mercredi : < ?php echo getDispoJour($dispos[3])?><br>
+                                Jeudi : < ?php echo getDispoJour($dispos[4])?><br>
+                                Vendredi : < ?php echo getDispoJour($dispos[5])?><br>
+                                Samedi : < ?php echo getDispoJour($dispos[6])?><br>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div id="myModal3" class="modal fade" role="dialog">
                     <div class="modal-dialog">
-                        <?php // Modal content
+                        < ?php // Modal content
                         $dispos = getDispos(40);?>
                         <div class="modal-content">
                             <div class="modal-header bg-success">
@@ -354,12 +353,12 @@ function getDispoJour($dispo) {
                                 <h4> Centre Socioculturel Envol : </h4>
                                 à Chalais<br><br>
                                 <h5> <u>Horaires et jours d'ouverture : </u></h5>
-                                Lundi : <?php echo getDispoJour($dispos[1])?><br>
-                                Mardi : <?php echo getDispoJour($dispos[2])?><br>
-                                Mercredi : <?php echo getDispoJour($dispos[3])?><br>
-                                Jeudi : <?php echo getDispoJour($dispos[4])?><br>
-                                Vendredi : <?php echo getDispoJour($dispos[5])?><br>
-                                Samedi : <?php echo getDispoJour($dispos[6])?><br>
+                                Lundi : < ?php echo getDispoJour($dispos[1])?><br>
+                                Mardi : < ?php echo getDispoJour($dispos[2])?><br>
+                                Mercredi : < ?php echo getDispoJour($dispos[3])?><br>
+                                Jeudi : < ?php echo getDispoJour($dispos[4])?><br>
+                                Vendredi : < ?php echo getDispoJour($dispos[5])?><br>
+                                Samedi : < ?php echo getDispoJour($dispos[6])?><br>
 
                             </div>
                         </div>
@@ -367,7 +366,7 @@ function getDispoJour($dispo) {
                 </div>
                 <div id="myModal4" class="modal fade" role="dialog">
                     <div class="modal-dialog">
-                        <?php // Modal content
+                        < ?php // Modal content
                         $dispos = getDispos(41);?>
                         <div class="modal-content">
                             <div class="modal-header bg-success">
@@ -377,12 +376,12 @@ function getDispoJour($dispo) {
                                 <h4> La Parenthèse : </h4>
                                 à Montmoreau<br><br>
                                 <h5> <u>Horaires et jours d'ouverture : </u></h5>
-                                Lundi : <?php echo getDispoJour($dispos[1])?><br>
-                                Mardi : <?php echo getDispoJour($dispos[2])?><br>
-                                Mercredi : <?php echo getDispoJour($dispos[3])?><br>
-                                Jeudi : <?php echo getDispoJour($dispos[4])?><br>
-                                Vendredi : <?php echo getDispoJour($dispos[5])?><br>
-                                Samedi : <?php echo getDispoJour($dispos[6])?><br>
+                                Lundi : < ?php echo getDispoJour($dispos[1])?><br>
+                                Mardi : < ?php echo getDispoJour($dispos[2])?><br>
+                                Mercredi : < ?php echo getDispoJour($dispos[3])?><br>
+                                Jeudi : < ?php echo getDispoJour($dispos[4])?><br>
+                                Vendredi : < ?php echo getDispoJour($dispos[5])?><br>
+                                Samedi : < ?php echo getDispoJour($dispos[6])?><br>
 
                             </div>
                         </div>
@@ -390,7 +389,7 @@ function getDispoJour($dispo) {
                 </div>
                 <div id="myModal5" class="modal fade" role="dialog">
                     <div class="modal-dialog">
-                        <?php // Modal content
+                        < ?php // Modal content
                         $dispos = getDispos(46);?>
                         <div class="modal-content">
                             <div class="modal-header bg-success">
@@ -400,17 +399,17 @@ function getDispoJour($dispo) {
                                 <h4> Pôle Multimedia et Mobilité: </h4>
                                 aux Côteaux Blanzacais<br><br>
                                 <h5> <u>Horaires et jours d'ouverture : </u></h5>
-                                Lundi : <?php echo getDispoJour($dispos[1])?><br>
-                                Mardi : <?php echo getDispoJour($dispos[2])?><br>
-                                Mercredi : <?php echo getDispoJour($dispos[3])?><br>
-                                Jeudi : <?php echo getDispoJour($dispos[4])?><br>
-                                Vendredi : <?php echo getDispoJour($dispos[5])?><br>
-                                Samedi : <?php echo getDispoJour($dispos[6])?><br>
+                                Lundi : < ?php echo getDispoJour($dispos[1])?><br>
+                                Mardi : < ?php echo getDispoJour($dispos[2])?><br>
+                                Mercredi : < ?php echo getDispoJour($dispos[3])?><br>
+                                Jeudi : < ?php echo getDispoJour($dispos[4])?><br>
+                                Vendredi : < ?php echo getDispoJour($dispos[5])?><br>
+                                Samedi : < ?php echo getDispoJour($dispos[6])?><br>
 
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
             
                 <div class="row text-center d-block">
                     <div class="copyright">
@@ -461,7 +460,6 @@ function getDispoJour($dispo) {
         <!-- include_once ROOT."/app/Views/carte/carteEvents.php"; -->
         <script src="<?= RACINE ?>js/jquery.validate.js" type="text/javascript"></script>
         <script src="<?= RACINE ?>js/form.js" type="text/javascript"></script>
-        <script src="<?= RACINE ?>js/parcours.js" type="text/javascript"></script>
         <script src="<?= RACINE ?>js/backoffice.js" type="text/javascript"></script>
 
         <?php if (!isset($_COOKIE['animWatched'])) { ?>

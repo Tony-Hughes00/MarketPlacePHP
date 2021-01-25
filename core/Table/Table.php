@@ -42,7 +42,6 @@ class Table {
 	 * @return object
 	 */
 	public function query(string $statement, $attr = null, bool $one = false) {
-		var_dump($statement);
 		if ($attr) {
 			return $this->db->prepare($statement, $attr, str_replace('Table', 'Entity', get_class($this)), $one);
 		} else {
