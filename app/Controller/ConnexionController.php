@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Controller\BackOffice;
+namespace App\Controller;
 use App;
-use App\Controller\BackOffice\AppBackOfficeController;
+
 use Core\Entity;
 
-class ConnexionController extends AppBackOfficeController {
+class ConnexionController extends AppController {
 
     public function __construct() {
         parent::__construct();
@@ -38,7 +38,7 @@ class ConnexionController extends AppBackOfficeController {
     public function connexion() {
         // Authenticate the user
         $login = $this->auth->login($_POST['con_email'], $_POST['con_mdp']);
-        $loginPNM = $this->auth->loginPNM($_POST['con_email'], $_POST['con_mdp']);
+        // $loginPNM = $this->auth->loginPNM($_POST['con_email'], $_POST['con_mdp']);
 
         // Redirect to profile/dashboard page if user is a member/technician
         if ($login && isset($_SESSION['marketplace']['user_type'])) {
@@ -47,5 +47,17 @@ class ConnexionController extends AppBackOfficeController {
             header('location: ' . ROUTE . 'Tdb', true, 303);
         }
     }
-
+    /**
+     * Function logout and redirect to home page
+     * 
+     * @return void
+     */
+    public function logout() {
+        if (isset($_COOKIE['rememberMe'])) {
+            unset($_COOKIE['rememberMe']);
+            setcookie('rememberMe', null, time() - 3600);
+        }
+        unset($_SESSION['marketplace']);
+        header('location: ' . ROUTE, true, 303);
+    }
 }
