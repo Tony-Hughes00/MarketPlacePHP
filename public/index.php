@@ -1,7 +1,4 @@
 <?php
-// Defaults::$crossOriginResourceSharing = true;
-// Defaults::$accessControlAllowOrigin = '*';
-// Defaults::$accessControlAllowMethods = 'GET, POST, PUT, PATCH, DELETE, OPTIONS, HEAD';
 use Core\Router\Router;
 
 error_reporting(E_ALL);
