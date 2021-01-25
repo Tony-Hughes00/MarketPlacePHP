@@ -36,11 +36,19 @@ $router = new Router($url);
 // $router->method('/render_url_rewriting', 'controller.function');
  
 $router->get('/', 'index.index');
+// api
 $router->get('/test', 'api.test.get');
 $router->post('/test', 'api.test.post');
 $router->option('/', 'api.test.index');
-
+// backoffice
+// inscription
 $router->get('/insProprietaire', 'backoffice.insProprietaire.get');
 $router->post('/insProprietaire', 'backoffice.insProprietaire.post');
+// commun
+// connexion
+$router->post('/connexion', 'connexion.connexion'); // TODO à modif
+$router->get('/logout', 'connexion.logout');
+
+$router->post('/profil', 'backoffice.profil.get');
 
 $router->run();

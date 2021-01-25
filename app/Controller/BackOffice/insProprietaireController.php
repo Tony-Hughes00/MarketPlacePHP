@@ -17,14 +17,11 @@ class InsProprietaireController extends AppBackOfficeController {
      * 
      * */
     public function get() {
-      App::getInstance()->title = 'Inscription' .  App::getInstance()->title;
+    //   App::getInstance()->title = 'Inscription' .  App::getInstance()->title;
+      $this->Titre('Inscription');
 
       $explodeURI = explode('.', $_SERVER['REQUEST_URI']);
       $userType = end($explodeURI);
-    //   echo "$this->template";
-    //   var_dump($this->template);
-    //   var_dump($this->viewPath);
-    //   var_dump($_SERVER['PHP_SELF']);
 
       $this->render('BackOffice.inscription', compact('userType'));
     }
@@ -40,10 +37,12 @@ class InsProprietaireController extends AppBackOfficeController {
       * @return void
       */
      public function post() {
-         // App::getInstance()->title = 'Inscription réussie' .  App::getInstance()->title;
-         $tableUser = $this->_loadModel('User');
-         $tableAdresse = $this->_loadModel('Adresse');
-         $tableMembre = $this->_loadModel('Membre');
+        //  App::getInstance()->title = 'Inscription réussie' .  App::getInstance()->title;
+        $this->Titre('Inscription réussie');
+
+        //  $tableUser = $this->_loadModel('User');
+        //  $tableAdresse = $this->_loadModel('Adresse');
+        //  $tableMembre = $this->_loadModel('Membre');
 
          $userData['email'] = $_POST['ins_email'];
          $userData['user_type'] = "prop";

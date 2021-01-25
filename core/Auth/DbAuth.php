@@ -34,11 +34,9 @@ class DbAuth {
 	 * @return boolean
 	 */
 	public function login(string $email, string $password) :bool {
-		$user = $this->db->prepare("SELECT membres.*, adresses.*, users.*
-            FROM ((membres
-            INNER JOIN adresses ON membres.adresse = adresses.id)
-            INNER JOIN users ON membres.users_id = users.id)
-            WHERE users.email = :email",
+		$user = $this->db->prepare("SELECT user.*
+            FROM user 
+            WHERE user.email = :email",
 		['email' => $email],
 		null,
 		true);
@@ -112,7 +110,7 @@ class DbAuth {
 	 * @return bool
 	 */
 	public function logged() :?bool {
-		return isset($_SESSION['transport-solidaire']);
+		return isset($_SESSION['marketplace']);
 	}
 
 }

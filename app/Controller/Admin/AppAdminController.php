@@ -71,7 +71,7 @@ class AppAdminController extends Controller {
     public function notFound() :string{
         App::getInstance()->title = 'Page introuvable' .  App::getInstance()->title;
         header($_SERVER['SERVER_PROTOCOL'] . ' 404 Forbidden');
-        (isset($_SESSION['transport-solidaire']['statut'])) ? $this->template = 'technicien' : $this->template = 'default';
+        (isset($_SESSION['marketplace']['statut'])) ? $this->template = 'technicien' : $this->template = 'default';
         $this->render('errors.404');
     }
 

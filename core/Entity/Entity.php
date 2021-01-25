@@ -9,6 +9,11 @@ use \App;
 class Entity {
 	protected $values;
 	public $tableName = "";
+
+	public function __construct() {
+		parent::__construct();
+	}
+
 	/**
 	 * Magic method
 	 *
