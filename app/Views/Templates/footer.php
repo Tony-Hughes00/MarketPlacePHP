@@ -1,7 +1,7 @@
-<footer class="mt-5 pt-5" style="background-color:#f8f9fa; box-shadow: 0px -10px 20px 0px rgba(0,0,0,.15);">
+<footer class="mt-5 pt-2" style="background-color:#f8f9fa; box-shadow: 0px -10px 20px 0px rgba(0,0,0,.15);">
 
   <balise id="PnmAncre" class="pt-5 mt-5"></balise>
-  <div class="row align-items-center justify-content-md-center mb-5">
+  <div class="row align-items-center justify-content-md-center mb-1">
       <div class="footer-pnm-main col-md-6 text-center mb-5 mb-md-0">
         <div class="row">
           <div class="col-12 col-md-6 footer-pnm-a-cont">
@@ -24,10 +24,8 @@
       <div class="contact-mosc col-md-5 text-center">
           <a class="num-ref text-primary border border-primary border d-block"
               href="tel:+33782327633">
-              <h3>Contacter Nous</h3>
-              <span>au N° unique :</span>
-              <br>
-              <span class="contact-mosc-tel"><i class="fas fa-phone-alt"></i> ?? ?? ?? ?? ??</span>
+              <p>Contacter Nous au N° unique :</p>
+              <p class="contact-mosc-tel"><i class="fas fa-phone-alt"></i> ?? ?? ?? ?? ??</p>
           </a>
       </div>
   </div>
