@@ -11,7 +11,7 @@ class Entity {
 	public $tableName = "";
 
 	public function __construct() {
-		parent::__construct();
+
 	}
 
 	/**
@@ -67,4 +67,14 @@ public function loadByEmail( $email ) {
 		$table->insert($this->values);
 		return App::getInstance()->getDb()->lastInsertId();
 	}
+  public static function fromArray( array $row ) {
+    $instance = new self();
+    $instance->fill( $row );
+    return $instance;
+  }
+  public static function loadFromEmail( $email ) {
+    $instance = new self();
+    $user = $instance->loadByEmail( $email );
+    return $user == null ? false : $user;
+  }
 }

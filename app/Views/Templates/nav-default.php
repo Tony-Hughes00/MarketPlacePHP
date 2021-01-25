@@ -54,13 +54,13 @@
 
             <div class="dropdown-menu dropdown-menu-lg-right" style="min-width: 15rem!important;">   
 
-                <?php if (!isset($_SESSION['MarketPlace'])) { ?>
+                <?php if (!isset($_SESSION['marketplace']['email'])) { ?>
                     <!-- --------------- -->
                     <!-- SI PAS CONNECTE -->
                     <!-- --------------- -->
                     
                     <!-- Formulaire dans Dropdown spécial Loïc -->
-                    <form method="post" action="<?=ROUTE?>profil" id="form-con" class="px-4 py-3">
+                    <form method="post" action="<?=ROUTE?>connexion" id="form-con" class="px-4 py-3">
                         <h5>Connectez-vous :</h5>
 
                         <div class="form-group">
@@ -95,7 +95,7 @@
                     <hr>
                     <a class="dropdown-item" href="<?= ROUTE ?>insProprietaire"><i class="fas fa-sign-in-alt">&nbsp;&nbsp;</i>Vous n'êtes pas encore inscrit ?</a>
                     <a class="dropdown-item" href="<?= ROUTE ?>request"> <i class="fas fa-user-lock">&nbsp;&nbsp;</i>Mot de passe oublié ?</a>                    
-                <?php } else if (isset($_SESSION['marketplace']['user_type']) || isset($_SESSION['marketplace']['statut'])) { ?>
+                <?php } else if (isset($_SESSION['marketplace']['email']) || isset($_SESSION['marketplace']['statut'])) { ?>
                     <!-- ----------- -->
                     <!-- SI CONNECTE -->
                     <!-- ----------- -->

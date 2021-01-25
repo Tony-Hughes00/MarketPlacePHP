@@ -21,7 +21,7 @@ class DbAuth {
 	 */
 	public function getUserId() {
 		if ($this->logged()) {
-			return $_SESSION['marketplace']['id'];
+			return $_SESSION['marketplace']['id_user'];
 		}
 		return false;
 	}
@@ -58,6 +58,7 @@ class DbAuth {
 				return true;
 			}
 		} else {
+			$_SESSION['marketplace']['user'] = 'user not found';
 			header('location: ' . ROUTE . 'connexion', true, 303);
 		}
 

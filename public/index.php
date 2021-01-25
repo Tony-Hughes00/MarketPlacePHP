@@ -50,5 +50,6 @@ $router->post('/connexion', 'connexion.connexion'); // TODO à modif
 $router->get('/logout', 'connexion.logout');
 
 $router->post('/profil', 'backoffice.profil.get');
+$router->get('/profil', 'backoffice.profil.get');
 
 $router->run();

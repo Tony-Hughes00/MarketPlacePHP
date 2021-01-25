@@ -12,6 +12,8 @@ class ProfilController extends AppBackofficeController {
     }
     public function get() {
       $this->Titre('Profil');
-      $this->render('backoffice.profil');
+
+      $test = $_SESSION;
+      $this->render('backoffice.profil', compact('test'));
     }
   }

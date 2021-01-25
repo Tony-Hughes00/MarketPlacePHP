@@ -27,14 +27,5 @@ class UserEntity extends Entity {
         "created_at" => null,
       ];
   }
-  public static function fromArray( array $row ) {
-    $instance = new self();
-    $instance->fill( $row );
-    return $instance;
-  }
-  public static function loadFromEmail( $email ) {
-    $instance = new self();
-    $user = $instance->loadByEmail( $email );
-    return $user == null ? false : $user;
-  }
+
 }
