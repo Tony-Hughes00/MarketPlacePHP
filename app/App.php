@@ -10,7 +10,7 @@ use Core\Database\MysqlDatabase;
  */
 class App {
 
-	public string $title = 'MarketPlace';
+	public string $title = ' | MarketPlace';
 	public string $escapeHtml = '';
 	private $dbInstance;
 	private static $instance;
