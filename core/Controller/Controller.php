@@ -3,14 +3,21 @@
 namespace Core\Controller;
 
 use App;
+use App\Core\Entity;
 /**
  * @package Core\Controller
  */
 class Controller {
 
+	private $entityFactory;
 	protected string $viewPath;
 	protected string $template = 'default';
 	
+
+	public function __construct() {
+		App::console_log( "Entity constructor" );
+		// $this->entityFactory = new EntityFactory();
+	}
 	/**
 	 * Render the page
 	 *
@@ -70,8 +77,27 @@ class Controller {
 	 */
 	public function Titre($titre) {
 		App::getInstance()->title = $titre .  App::getInstance()->title;
-
 	}
-	
-
+	private function getEntityFactory() {
+		if ($this->entityFactory == null) {
+			$this->entityFactory = new EntityFactory();
+		}
+		return $this->entityFactory;
+	}
+	public function load($table, $col, $val) {
+		return $this->getEntityFactory()->load($table, $col, $val);
+	}
+	public function loadBy($user, $email, $value)
+	{
+		Entity::loadBy($user, $email, $value);
+	}
+	public function fromArray($userData) {
+		Entity::fromArray($userData);
+	}
+	public function UserId() {
+		return $this->getAuth()->getUserId();
+	}
+	public function console_log($message) {
+		App::console_log($message);
+	}
 }

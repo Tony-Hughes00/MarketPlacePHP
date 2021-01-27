@@ -50,13 +50,13 @@ class InsProprietaireController extends AppBackOfficeController {
          $userData['prenom'] = $_POST['ins_prenom'];
          $userData['civilite'] = $_POST['ins_civilite'];
 
-         $userExists = App\Entity\UserEntity::loadFromEmail($userData['email']);
+         $userExists = $this->loadBy('user', 'email', $userData['email']);
          if (!$userExists) {
              $hash = password_hash($_POST['ins_mdp'], PASSWORD_ARGON2I);
 
              $userData['mdp'] = $hash;
              // User
-             $user = App\Entity\UserEntity::fromArray($userData);
+             $user = $this->fromArray($userData);
  
              $userData['user_id'] = $user->insert();
 

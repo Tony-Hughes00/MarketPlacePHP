@@ -11,7 +11,7 @@ class Entity {
 	public $tableName = "";
 
 	public function __construct() {
-
+		App::console_log( "Entity constructor" );
 	}
 
 	/**
@@ -25,27 +25,42 @@ class Entity {
 		$this->$key = $this->$method();
 		return $this->$key;
 	}
-	public static function loadFromID( $id ) {
+	public static function load( $id ) {
 		$instance = new self();
-		$instance->loadByID( $id );
+		$instance->loadByCol('id', $id );
 		return $instance;
 }
-
-
+public static function fromArray( array $row ) {
+	$instance = new self();
+	$instance->fill( $row );
+	return $instance;
+}
 public static function withRow( array $row ) {
 		$instance = new self();
 		$instance->fill( $row );
 		return $instance;
 }
-
-public function loadByEmail( $email ) {
+public static function loadBy($tableName, $col, $val ) {
+	// do query
+//	$instance = new self();
+	$table = $tableName . "Table";
+	$instance = new $table();
+	$instance->loadByCol($col, $val);
+	if ($row) {
+		return $this->fill( $row );
+	}
+	return $row;
+}
+public function loadByCol($col, $value ) {
 		// do query
 		$table = App::getInstance()->getTable($this->tableName);
-		$row = $table->selectUserByEmail($email);
-		if ($row) {
-			return $this->fill( $row );
-		}
-		return $row;
+		return $table->selectBy($col, $value);
+		// $row = $table->selectBy($col, $value);
+		// if ($row) {
+		// 	var_dump($row);
+		// 	return $this->fill( $row );
+		// }
+		// return $row;
 }
   public function fill( $row ) {
 		// fill all properties from array
@@ -56,10 +71,12 @@ public function loadByEmail( $email ) {
 		} else {
 			foreach ($this->values as $key => $value) {
 				if (isset($row[$key])) {
-					$this->values[$key] = $row[$key];
+					$this->$key = $row[$key];
 				}
 			}
 		}
+		var_dump($row);
+		var_dump($this->values);
 		return $this;
 	}
 	public function insert() {
@@ -67,14 +84,4 @@ public function loadByEmail( $email ) {
 		$table->insert($this->values);
 		return App::getInstance()->getDb()->lastInsertId();
 	}
-  public static function fromArray( array $row ) {
-    $instance = new self();
-    $instance->fill( $row );
-    return $instance;
-  }
-  public static function loadFromEmail( $email ) {
-    $instance = new self();
-    $user = $instance->loadByEmail( $email );
-    return $user == null ? false : $user;
-  }
 }
