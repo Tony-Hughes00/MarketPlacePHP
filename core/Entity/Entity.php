@@ -2,6 +2,7 @@
 
 namespace Core\Entity;
 use \App;
+use \App\Table;
 /**
  * Entity class
  * @package Core\Entity
@@ -27,10 +28,11 @@ class Entity {
 	}
 	public static function load( $id ) {
 		$instance = new self();
-		$instance->loadByCol('id', $id );
+		$instance->selectBy('id', $id );
 		return $instance;
 }
 public static function fromArray( array $row ) {
+
 	$instance = new self();
 	$instance->fill( $row );
 	return $instance;
@@ -40,17 +42,30 @@ public static function withRow( array $row ) {
 		$instance->fill( $row );
 		return $instance;
 }
-public static function loadBy($tableName, $col, $val ) {
-	// do query
-//	$instance = new self();
-	$table = $tableName . "Table";
-	$instance = new $table();
-	$instance->loadByCol($col, $val);
-	if ($row) {
-		return $this->fill( $row );
-	}
-	return $row;
+public function create($row) {
+	$this->fill($row);
+	return $this->insert();
 }
+public function initEntity($row) {
+	return $this->fill($row);
+}
+// public static function create($tableName, array $row) {
+// 	$table = App::getInstance()->getTable($tableName);
+// })
+// public static function loadBy($tableName, $col, $val ) {
+// 	// do query
+// //	$instance = new self();
+// // var_dump('Entity loadBy');
+
+// 	// $table = $tableName . "Table";
+// 	$table = App::getInstance()->getTable($tableName);
+// 	// $instance = new $table();
+// 	$row = $table->selectBy($col, $val);
+// 	if ($row) {
+// 		return $this->fill( $row );
+// 	}
+// 	return $row;
+// }
 public function loadByCol($col, $value ) {
 		// do query
 		$table = App::getInstance()->getTable($this->tableName);
@@ -64,23 +79,23 @@ public function loadByCol($col, $value ) {
 }
   public function fill( $row ) {
 		// fill all properties from array
-		if (is_object($row)) {
-			foreach ($this->values as $key => $value) {
+		// var_dump($row);
+		if (!is_array($row)) {
+			foreach ($row as $key => $value) {
 				$this->values[$key] = $row->$key;
 			}
 		} else {
-			foreach ($this->values as $key => $value) {
-				if (isset($row[$key])) {
-					$this->$key = $row[$key];
-				}
+			foreach ($row as $key => $value) {
+					$this->values[$key] = $row[$key];
 			}
 		}
-		var_dump($row);
-		var_dump($this->values);
+		// var_dump($row);
+		// var_dump($this->values);
 		return $this;
 	}
 	public function insert() {
 		$table = App::getInstance()->getTable($this->tableName);
+		// var_dump($this->values);
 		$table->insert($this->values);
 		return App::getInstance()->getDb()->lastInsertId();
 	}

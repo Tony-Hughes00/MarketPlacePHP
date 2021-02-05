@@ -11,10 +11,23 @@ class EntityFactory {
 
 	public function __construct() {
   }
-  public function load($table, $col, $value) {
+  // public function load($table, $col, $value) {
+  //   $entity = null;
+  //   switch ($table) {
+  //     case 'user':
+  //       $entity = new App\Entity\UserEntity();
+  //       break;
+  //     default:
+  //     break;
+  //   }
+  //   // var_dump($col);
+  //   // var_dump($value);
+  //   return $entity->loadByCol($col, $value);
+  // }
+  public function get($table) {
     $entity = null;
     switch ($table) {
-      case 'user':
+      case 'User':
         $entity = new App\Entity\UserEntity();
         break;
       default:
@@ -22,6 +35,6 @@ class EntityFactory {
     }
     // var_dump($col);
     // var_dump($value);
-    return $entity->loadByCol($col, $value);
+    return $entity;
   }
 }

@@ -3,7 +3,7 @@
 namespace Core\Controller;
 
 use App;
-use App\Core\Entity;
+use Core\Entity\Entity;
 /**
  * @package Core\Controller
  */
@@ -59,7 +59,7 @@ class Controller {
 	 *
 	 * @return string
 	 */
-	public function httpRespond($resBody) {
+	public function sendHeaders() {
 
 		header("Access-Control-Allow-Credentials: true");
 		header("Access-Control-Allow-Origin: *");
@@ -68,8 +68,17 @@ class Controller {
 
 		header('Content-Type: application/json');
 
-		echo json_encode($resBody);
 	}
+	public function sendResponse($body) {
+
+		$resBody = (object) array();
+		$resBody->status = "200";
+		$resBody->message = "valid request";
+		$resBody->data = $body;
+
+		$this->sendHeaders();
+		echo json_encode($resBody); 
+}
 		/**
 	 * Generate an page (if specified) for HTTP 404 errors
 	 *
@@ -78,26 +87,38 @@ class Controller {
 	public function Titre($titre) {
 		App::getInstance()->title = $titre .  App::getInstance()->title;
 	}
-	private function getEntityFactory() {
+	private function getEntity($tableName) {
 		if ($this->entityFactory == null) {
 			$this->entityFactory = new EntityFactory();
 		}
-		return $this->entityFactory;
+		return $this->entityFactory->get($tableName);
 	}
 	public function load($table, $col, $val) {
-		return $this->getEntityFactory()->load($table, $col, $val);
+		return $this->getEntity($table)->loadByCol($col, $val);
 	}
-	public function loadBy($user, $email, $value)
+	public function loadBy($table, $col, $val)
 	{
-		Entity::loadBy($user, $email, $value);
+		return $this->getEntity($table)->loadByCol($col, $val);
+	}
+	public function create($tableName, $row)
+	{
+		return $this->getEntity($tableName)->create($row);
+
+		// Entity::create($table, $col, $value);
+	}
+	public function initEntity($tableName, $row) {
+		return $this->getEntity($tableName)->initEntity($row);
 	}
 	public function fromArray($userData) {
-		Entity::fromArray($userData);
+		$this->getEntity($table)->init($userData);
 	}
 	public function UserId() {
 		return $this->getAuth()->getUserId();
 	}
 	public function console_log($message) {
 		App::console_log($message);
+	}
+	public function getBody() {
+		return file_get_contents('php://input');
 	}
 }

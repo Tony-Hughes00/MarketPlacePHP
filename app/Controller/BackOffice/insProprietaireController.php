@@ -68,12 +68,6 @@ class InsProprietaireController extends AppBackOfficeController {
           header('location: ' . ROUTE . '/', true, 303);
          }
     }
-        /**
-     * Function return data as JSON
-     *
-     * @return void
-     */
-
 
   }
 

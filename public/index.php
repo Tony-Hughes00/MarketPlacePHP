@@ -39,7 +39,12 @@ $router->get('/', 'index.index');
 // api
 $router->get('/test', 'api.test.get');
 $router->post('/test', 'api.test.post');
-$router->option('/', 'api.test.index');
+$router->options('/', 'api.test.index');
+
+$router->get('/insUser', 'api.insUser.get');
+$router->post('/insUser', 'api.insUser.post');
+$router->options('/insUser', 'api.insUser.options');
+
 // backoffice
 // inscription
 $router->get('/insProprietaire', 'backoffice.insProprietaire.get');

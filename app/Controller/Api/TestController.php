@@ -19,12 +19,8 @@ class TestController extends AppAdminController {
 
         $data = "This is a test";
 
-        header("Access-Control-Allow-Credentials: true");
-        header("Access-Control-Allow-Origin: *");
-        header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept, authorization");
-        header("Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS");
-
-        header('Content-Type: application/json');
+        $this->sendHeaders();
+        
         $resBody = (object) array();
         $resBody->status = "200";
         $resBody->message = "valid request";

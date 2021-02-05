@@ -52,6 +52,7 @@ class UserTable extends Table {
      * @return object
      */
     public function insert(array $data) {
+        // var_dump($data);
         return $this->query("INSERT INTO {$this->table} (
             email,
             mdp,

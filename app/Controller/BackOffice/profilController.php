@@ -16,7 +16,7 @@ class ProfilController extends AppBackOfficeController {
       $this->console_log($this->UserId());
 
       $user = null;
-      $user = $this->load('user', 'id_user', $this->UserId());
+      $user = $this->load('User', 'id_user', $this->UserId());
       $this->console_log($user);
       // var_dump($user);
       // $test = $_SESSION;

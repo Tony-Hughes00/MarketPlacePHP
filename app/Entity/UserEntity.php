@@ -13,22 +13,22 @@ class UserEntity extends Entity {
     $this->tableName = "user";
 
     $this->init();
-    
+    var_dump($this->values);
     App::console_log( "UserEntity constructor" );
   }
   private function init() {
     $this->values = [
-      "id_user" => null,
-      "email" => "",
-      "mdp" => "",
-      "user_type" => "",
-      "nom" => "",
-      "prenom" => "",
-      "civilite" => "",
-      "valide" => 0,
-      "changeMDP" => 0,
-      "created_by" => null,
-      "created_at" => null,
+      (string) "id_user" => null,
+      (string) "email" => "",
+      (string) "mdp" => "",
+      (string) "user_type" => "",
+      (string) "nom" => "",
+      (string) "prenom" => "",
+      (string) "civilite" => "",
+      (string) "valide" => "2",
+      (string) "changeMDP" => "0",
+      (string) "created_by" => null,
+      (string) "created_at" => null,
     ];
   }
 }
