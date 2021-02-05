@@ -12,7 +12,7 @@ class Entity {
 	public $tableName = "";
 
 	public function __construct() {
-		App::console_log( "Entity constructor" );
+		// App::console_log( "Entity constructor" );
 	}
 
 	/**

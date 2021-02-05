@@ -1,6 +1,6 @@
 <?php
 
-namespace Core\Controller;
+namespace Core\Business;
 use App;
 use App\Entity\Entity;
 /**

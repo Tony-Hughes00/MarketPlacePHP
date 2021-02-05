@@ -13,8 +13,7 @@ class UserEntity extends Entity {
     $this->tableName = "user";
 
     $this->init();
-    var_dump($this->values);
-    App::console_log( "UserEntity constructor" );
+    // App::console_log( "UserEntity constructor" );
   }
   private function init() {
     $this->values = [

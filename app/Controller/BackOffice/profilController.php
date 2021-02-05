@@ -13,11 +13,11 @@ class ProfilController extends AppBackOfficeController {
     public function get() {
       $this->Titre('Profil');
 
-      $this->console_log($this->UserId());
+      // $this->console_log($this->UserId());
 
       $user = null;
       $user = $this->load('User', 'id_user', $this->UserId());
-      $this->console_log($user);
+      // $this->console_log($user);
       // var_dump($user);
       // $test = $_SESSION;
       $this->render('backoffice.profil', compact('user'));

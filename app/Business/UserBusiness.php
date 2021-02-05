@@ -1,9 +1,13 @@
 <?php
+
 namespace App\Business;
 use App;
+// use App\Business;
 use Core\Entity;
+use Core\Business\Business;
 
-class UserBusiness {
+
+class UserBusiness extends Business {
 
     public function __construct() {
 
@@ -45,9 +49,42 @@ class UserBusiness {
             return $userData;
          }
     }
+    /**
+     * Function render admin PDF view
+     *
+     * @return void
+     */
+    public function inscription($data) {
 
+      //  $userData['civilite'] = $_POST['ins_civilite'];
+      $resBody = (object) array();
+      $resBody->testMessage = 'creating user...';
+      // $rsBody->reqData = $data->body;
+      try {
+       $userExists = $this->loadBy('User', 'email', $data['email']);
+      }
+      catch (Exception $e) {
+          $resBody->error;
+      }
+      // var_dump($userExists);      //  var_dump('creating user....');
+       if (!$userExists) {
+           $hash = password_hash($data->body->mdp, PASSWORD_ARGON2I);
 
+           $data['mdp'] = $hash;
+           $user = $this->create('User', $data);
+           $resBody->user = $user;
+
+           $resBody->status = "200";
+           $resBody->statusApi = "0";
+           $resBody->message = "user created";
+       } else {
+        $resBody->status = "200";
+        $resBody->statusApi = "1";
+        $resBody->message = "user already exists";
+        $resBody->user = $userExists;
+       } 
+
+       return $resBody;
 
   }
-
-?>
+}

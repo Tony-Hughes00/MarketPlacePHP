@@ -36,14 +36,18 @@ $router = new Router($url);
 // $router->method('/render_url_rewriting', 'controller.function');
  
 $router->get('/', 'index.index');
+$router->options('/', 'api.AppApi.options');
 // api
 $router->get('/test', 'api.test.get');
 $router->post('/test', 'api.test.post');
-$router->options('/', 'api.test.index');
+// $router->options('/', 'api.test.index');
 
-$router->get('/insUser', 'api.insUser.get');
-$router->post('/insUser', 'api.insUser.post');
-$router->options('/insUser', 'api.insUser.options');
+$router->get('/api/User', 'api.User.get');
+$router->post('/api/User', 'api.User.post');
+$router->options('/api/User', 'api.User.options');
+
+$router->options('/api/inscription', 'api.AppApi.options');
+$router->post('/api/inscription', 'api.User.inscription');
 
 // backoffice
 // inscription

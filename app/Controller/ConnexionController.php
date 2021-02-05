@@ -36,11 +36,10 @@ class ConnexionController extends AppController {
      * @return void
      */
     public function connexion() {
-        // Authenticate the user
+
         $login = $this->auth->login($_POST['con_email'], $_POST['con_mdp']);
-        // $loginPNM = $this->auth->loginPNM($_POST['con_email'], $_POST['con_mdp']);
-// var_dump($login);
-        // Redirect to profile/dashboard page if user is a member/technician
+
+        
         if ($login && isset($_SESSION['marketplace']['user_type'])) {
             header('location: ' . ROUTE . 'profil', true, 303);
         } else if ($loginPNM && isset($_SESSION['marketplace']['statut'])) {
