@@ -26,11 +26,11 @@ class Entity {
 		$this->$key = $this->$method();
 		return $this->$key;
 	}
-	public static function load( $id ) {
-		$instance = new self();
-		$instance->selectBy('id', $id );
-		return $instance;
-}
+// 	public static function load( $id ) {
+// 		$instance = new self();
+// 		$instance->selectBy('id', $id );
+// 		return $instance;
+// }
 public static function fromArray( array $row ) {
 
 	$instance = new self();

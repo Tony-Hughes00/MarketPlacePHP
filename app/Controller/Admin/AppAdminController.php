@@ -53,7 +53,7 @@ class AppAdminController extends Controller {
         App::getInstance()->title = 'Accès refusé' .  App::getInstance()->title;
         header($_SERVER['SERVER_PROTOCOL'] . ' 403 Forbidden');
         (isset($_SESSION['marketplace']['statut'])) ? $this->template = 'technicien' : $this->template = 'default';
-        $this->render('errors.403');
+        return $this->render('errors.403');
     }
 
     public function isAdmin() {
@@ -72,7 +72,7 @@ class AppAdminController extends Controller {
         App::getInstance()->title = 'Page introuvable' .  App::getInstance()->title;
         header($_SERVER['SERVER_PROTOCOL'] . ' 404 Forbidden');
         (isset($_SESSION['marketplace']['statut'])) ? $this->template = 'technicien' : $this->template = 'default';
-        $this->render('errors.404');
+        return $this->render('errors.404');
     }
 
 }

@@ -2,13 +2,24 @@
 namespace Core\Business;
 use App;
 use Core\Entity\Entity;
+use Core\Auth\DbAuth;
 
 class Business {
 protected  $entityFactory;
+protected object $auth;
 
     public function __construct() {
-
-    }
+			$this->auth = $this->getAuth();
+	
+		}
+		    /**
+     * Set new instance of DbAuth
+     * 
+     * @return DbAuth
+     */
+    protected function getAuth() {
+			return new DbAuth (App::getInstance()->getDb());
+	}
 private function getEntity($tableName) {
 		if ($this->entityFactory == null) {
 			$this->entityFactory = new EntityFactory();
@@ -31,8 +42,8 @@ private function getEntity($tableName) {
 	public function initEntity($tableName, $row) {
 		return $this->getEntity($tableName)->initEntity($row);
 	}
-	public function fromArray($userData) {
-		$this->getEntity($table)->init($userData);
+	public function fromArray($tableName, $userData) {
+		return $this->getEntity($tableName)->init($userData);
 	}
 	public function UserId() {
 		return $this->getAuth()->getUserId();
@@ -40,7 +51,5 @@ private function getEntity($tableName) {
 	public function console_log($message) {
 		App::console_log($message);
 	}
-	public function getBody() {
-		return file_get_contents('php://input');
-	}
+
 }

@@ -49,14 +49,19 @@ $router->options('/api/User', 'api.User.options');
 $router->options('/api/inscription', 'api.AppApi.options');
 $router->post('/api/inscription', 'api.User.inscription');
 
+$router->options('/api/connexion', 'api.AppApi.options');
+$router->post('/api/connexion', 'api.User.connexion');
+$router->options('/api/logout', 'api.AppApi.options');
+$router->get('/api/logout', 'api.User.logout');
 // backoffice
 // inscription
-$router->get('/insProprietaire', 'backoffice.insProprietaire.get');
-$router->post('/insProprietaire', 'backoffice.insProprietaire.post');
+$router->get('/inscription', 'backoffice.User.get');
+$router->post('/inscription', 'backoffice.User.post');
 // commun
 // connexion
-$router->post('/connexion', 'connexion.connexion'); // TODO à modif
-$router->get('/logout', 'connexion.logout');
+// $router->post('/connexion', 'backoffice.connexion.connexion'); // TODO à modif
+// $router->get('/logout', 'backoffice.connexion.logout');
+
 
 $router->post('/profil', 'backoffice.profil.get');
 $router->get('/profil', 'backoffice.profil.get');

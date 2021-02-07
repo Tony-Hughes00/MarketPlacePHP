@@ -33,15 +33,17 @@ class DbAuth {
 	 * @param string $password
 	 * @return boolean
 	 */
-	public function login(string $email, string $password) :bool {
+	public function login(string $email, string $password)  {
 		$user = $this->db->prepare("SELECT user.*
             FROM user 
             WHERE user.email = :email",
 		['email' => $email],
 		null,
 		true);
-
+		// var_dump($user);
+		// var_dump($password);
 		if ($user) {
+			// var_dump($user);
 			if (password_verify($password, $user->mdp)) {
 				if (isset($_POST['remember'])) {
 					// TODO consentement cookies
@@ -55,12 +57,10 @@ class DbAuth {
 					}
 				}
 				
-				return true;
+				return $user;
 			}
-		} else {
-			$_SESSION['marketplace']['user'] = 'user not found';
-			header('location: ' . ROUTE . 'connexion', true, 303);
-		}
+			return false;
+		} 
 
 		return false;
 	}

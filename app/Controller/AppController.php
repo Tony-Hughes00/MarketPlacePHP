@@ -16,7 +16,6 @@ class AppController extends Controller {
     protected string $_template = 'default';
     protected string $_model_name;
     protected object $auth;
-
     /**
      * Define the default path for views
      */

@@ -14,7 +14,7 @@ class Controller {
 	
 
 	public function __construct() {
-		App::console_log( "Entity constructor" );
+		// App::console_log( "Entity constructor" );
 		// $this->entityFactory = new EntityFactory();
 	}
 	/**

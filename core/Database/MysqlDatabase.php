@@ -81,7 +81,6 @@ Class MysqlDatabase extends Database {
 			}
 		}
 		$req = $this->getPDO()->prepare($statement);
-		var_dump($statement);
 		$res = $req->execute($options);
 		if (
 			strpos($statement, 'UPDATE') === 0 ||

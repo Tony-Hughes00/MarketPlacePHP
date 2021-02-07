@@ -11,7 +11,7 @@
                 <p>Remplissez tous les champs d'une étape pour passer à la suivante.</p>
                 <div class="row">
                     <div class="col-md-12 mx-0">
-                        <form method="post" action="<?=ROUTE?>insProprietaire" id="form-backoffice">
+                        <form method="post" action="<?=ROUTE?>inscription" id="form-backoffice">
                             <ul id="progressbar" class="nav d-none d-md-flex">
                                 <li class="nav-item">
                                     <a id="form-step-1" class="form-step nav-link p-0 active" href="#step-1">

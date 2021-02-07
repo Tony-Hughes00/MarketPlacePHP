@@ -3,6 +3,7 @@
 namespace App\Business;
 use App;
 // use App\Business;
+use Exception;
 use Core\Entity;
 use Core\Business\Business;
 
@@ -35,13 +36,13 @@ class UserBusiness extends Business {
       */
      public function post($data) {
 
-         $userExists = $this->loadBy('user', 'email', $userData['email']);
+         $userExists = $this->loadBy('user', 'email', $data['email']);
          if (!$userExists) {
              $hash = password_hash($_POST['ins_mdp'], PASSWORD_ARGON2I);
 
              $userData['mdp'] = $hash;
              // User
-             $user = $this->fromArray($userData);
+             $user = $this->fromArray('User', $userData);
  
              $userData['user_id'] = $user->insert();
              $userData['user'] = $user;
@@ -54,7 +55,7 @@ class UserBusiness extends Business {
      *
      * @return void
      */
-    public function inscription($data) {
+    public function inscription($data): object {
 
       //  $userData['civilite'] = $_POST['ins_civilite'];
       $resBody = (object) array();
@@ -83,8 +84,22 @@ class UserBusiness extends Business {
         $resBody->message = "user already exists";
         $resBody->user = $userExists;
        } 
-
        return $resBody;
-
   }
+  public function connexion($data) {
+
+    $resBody = (object) array();
+    $resBody->testMessage = 'connexion...';
+
+    $resBody->user = $this->auth->login($data['email'], $data['mdp']);
+
+    if ($resBody->user) {
+      $resBody->status = 1;
+      $resBody->message = "connexion failed";
+    } else {
+      $resBody->status = 0;
+      $resBody->message = "connexion réussi";
+    }
+    return $resBody;
+  } 
 }

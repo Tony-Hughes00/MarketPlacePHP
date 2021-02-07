@@ -95,10 +95,10 @@ class UserTable extends Table {
      * @return object
      */
     public function insertProprietaire(array $data) {
-        $data->user_type = 'prop';
-        $data->valide = false;
-        $data->changeMDP = false;
-        $data->created_by = null;
+        $data['user_type'] = 'prop';
+        $data['valide'] = false;
+        $data['changeMDP'] = false;
+        $data['created_by'] = null;
 
         return $this->insert($data);
     }

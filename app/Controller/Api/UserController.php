@@ -10,33 +10,45 @@ protected $businessLayer;
         $this->businessLayer = new business\UserBusiness();
     }
 
-    /**
-     * Function render admin PDF view
-     *
-     * @return void
-     */
-    public function options() {
-        // $this->isAdmin();
+    // /**
+    //  * Function render admin PDF view
+    //  *
+    //  * @return void
+    //  */
+    // public function options() {
+    //     // $this->isAdmin();
 
-        $data = "This is a test";
+    //     $data = "This is a test";
 
-        // $this->sendHeaders();
+    //     // $this->sendHeaders();
         
-        $resBody = (object) array();
-        $resBody->status = "200";
-        $resBody->message = "valid request";
-        $resBody->data = "This is the data";
-        // echo json_encode($resBody);
-        $this->sendResponse($resBody);
-    }
+    //     $resBody = (object) array();
+    //     $resBody->status = "200";
+    //     $resBody->message = "valid request";
+    //     $resBody->data = "This is the data";
+    //     // echo json_encode($resBody);
+    //     $this->sendResponse($resBody);
+    // }
 /**
      * Function login redirections
      *
      * @return void
      */
     public function connexion() {
+        $data = (object) array();
+        $data->body = json_decode($this->getBody());
+        // var_dump($data);
+  
+        $userData['email'] = $data->body->email;
+        $userData['user_type'] = "client";
+        $userData['mdp'] = $data->body->mdp;
 
-        $login = $this->auth->login($_POST['con_email'], $_POST['con_mdp']);
+        $resBody =(object) array();
+        $resBody->user = $this->getAuth()->login($userData['email'], $userData['mdp']);
+        // var_dump($resBody);
+// $resBody = "";
+// $this->sendHeaders();
+        $this->sendResponse($resBody);
 
     }
 
@@ -45,14 +57,22 @@ protected $businessLayer;
      *
      * @return void
      */
-    public function get() {
+    public function logout() {
         // $this->isAdmin();
-
         $data = (object) array();
-        $data->body = $this->getBody();
-        var_dump($data->body);
-        $data->testMessage = "This is a test";
-        $this->sendResponse($data->body);
+        $data->body = json_decode($this->getBody());
+        // var_dump($data);
+  
+        $userData['email'] = $data->body->email;
+        $userData['user_type'] = "client";
+        $userData['mdp'] = $data->body->mdp;
+
+        $resBody =(object) array();
+        $resBody->user = $this->getAuth()->login($userData['email'], $userData['mdp']);
+        // var_dump($resBody);
+// $resBody = "";
+// $this->sendHeaders();
+        $this->sendResponse($resBody);
     }
 
     
@@ -64,7 +84,7 @@ protected $businessLayer;
     public function inscription() {
 
         $data = (object) array();
-        $data->body = json_decode($this->businessLayer->getBody());
+        $data->body = json_decode($this->getBody());
         // var_dump($data);
   
         $userData['email'] = $data->body->email;

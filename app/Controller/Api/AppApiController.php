@@ -53,7 +53,7 @@ class AppApiController extends Controller {
         App::getInstance()->title = 'Accès refusé' .  App::getInstance()->title;
         header($_SERVER['SERVER_PROTOCOL'] . ' 403 Forbidden');
         (isset($_SESSION['marketplace']['statut'])) ? $this->template = 'technicien' : $this->template = 'default';
-        $this->render('errors.403');
+        return $this->render('errors.403');
     }
 
     public function isAdmin() {
@@ -72,7 +72,7 @@ class AppApiController extends Controller {
         App::getInstance()->title = 'Page introuvable' .  App::getInstance()->title;
         header($_SERVER['SERVER_PROTOCOL'] . ' 404 Forbidden');
         (isset($_SESSION['marketplace']['statut'])) ? $this->template = 'technicien' : $this->template = 'default';
-        $this->render('errors.404');
+        return $this->render('errors.404');
     }
     public function sendHeaders() {
         header("Access-Control-Allow-Credentials: true");
@@ -80,7 +80,7 @@ class AppApiController extends Controller {
         header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept, authorization");
         header("Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS");
 
-        header('Content-Type: application/json');
+        header('Content-Type: text');
 
         // header('Content-Type: application/json');
     }
@@ -103,4 +103,7 @@ class AppApiController extends Controller {
         // echo json_encode($resBody);
         $this->sendResponse($resBody);
     }
+    public function getBody() {
+		return file_get_contents('php://input');
+	}
 }
