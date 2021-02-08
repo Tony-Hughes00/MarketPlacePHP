@@ -77,14 +77,14 @@ class UserController extends AppBackOfficeController {
     */
    public function connexion() {
   // var_dump($data);
- 
-    $userData['email'] = $_POST['ins_email'];
+ var_dump($_REQUEST);
+    $userData['email'] = $_POST['con_email'];
     $userData['user_type'] = "prop";
     $userData['mdp'] = $_POST['con_mdp'];
 
-
-    $resBody = $this->auth->login($userData['email'], $userData['mdp']);
-
+    $resBody = (object) array();
+    $resBody->user = $this->auth->login($userData['email'], $userData['mdp']);
+var_dump($resBody);
     if ($resBody->user && isset($_SESSION['marketplace']['user_type'])) {
       header('location: ' . ROUTE . 'profil', true, 303);
   } else if ($resBody->user && isset($_SESSION['marketplace']['statut'])) {
@@ -112,14 +112,14 @@ class UserController extends AppBackOfficeController {
           setcookie('rememberMeToken', null, time() - 3600);
 
           $tableCookie = $this->_loadModel('Cookie');
-          $token = $tableCookie->selectCookieTokenByEmail($_SESSION['transport-solidaire']['email']);
+          $token = $tableCookie->selectCookieTokenByEmail($_SESSION['marketplace']['email']);
 
           if ($token) {
-              $tableCookie->deleteCookieToken($_SESSION['transport-solidaire']['email']);
+              $tableCookie->deleteCookieToken($_SESSION['marketplace']['email']);
           }
       }
 
-      unset($_SESSION['transport-solidaire']);
+      unset($_SESSION['marketplace']);
 
       header('location: ' . ROUTE, true, 303);
   }

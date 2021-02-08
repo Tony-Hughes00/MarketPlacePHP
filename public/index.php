@@ -57,6 +57,9 @@ $router->get('/api/logout', 'api.User.logout');
 // inscription
 $router->get('/inscription', 'backoffice.User.get');
 $router->post('/inscription', 'backoffice.User.post');
+$router->get('/logout', 'backoffice.User.logout');
+$router->post('/connexion', 'backoffice.User.connexion');
+
 // commun
 // connexion
 // $router->post('/connexion', 'backoffice.connexion.connexion'); // TODO à modif

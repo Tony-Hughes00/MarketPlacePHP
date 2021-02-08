@@ -49,7 +49,7 @@
     </div>
     <div class="dropdown">
             <button class="btn btn-info p-2" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-user"></i> &nbsp;Espace utilisateur
+                <i class="fas fa-user"></i> &nbsp;Espace utilisateur def
             </button>
 
             <div class="dropdown-menu dropdown-menu-lg-right" style="min-width: 15rem!important;">   
