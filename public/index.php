@@ -56,7 +56,7 @@ $router->get('/api/logout', 'api.User.logout');
 // backoffice
 // inscription
 $router->get('/inscription', 'backoffice.User.get');
-$router->post('/inscription', 'backoffice.User.post');
+$router->post('/inscription', 'backoffice.User.inscription');
 $router->get('/logout', 'backoffice.User.logout');
 $router->post('/connexion', 'backoffice.User.connexion');
 
@@ -68,5 +68,7 @@ $router->post('/connexion', 'backoffice.User.connexion');
 
 $router->post('/profil', 'backoffice.profil.get');
 $router->get('/profil', 'backoffice.profil.get');
+
+$router->get('/boutique', 'backoffice.boutique.boutique');
 
 $router->run();

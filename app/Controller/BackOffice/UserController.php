@@ -20,15 +20,15 @@ class UserController extends AppBackOfficeController {
      * @return void    
      * 
      * */
-    public function get() {
-    //   App::getInstance()->title = 'Inscription' .  App::getInstance()->title;
-      $this->Titre('Inscription');
+    // public function get() {
+    // //   App::getInstance()->title = 'Inscription' .  App::getInstance()->title;
+    //   $this->Titre('Inscription');
 
-      $explodeURI = explode('.', $_SERVER['REQUEST_URI']);
-      $userType = end($explodeURI);
+    //   $explodeURI = explode('.', $_SERVER['REQUEST_URI']);
+    //   $userType = end($explodeURI);
 
-      $this->render('BackOffice.inscription', compact('userType'));
-    }
+    //   $this->render('BackOffice.inscription', compact('userType'));
+    // }
     /**
      * Function render admin PDF view
      *
@@ -52,18 +52,6 @@ class UserController extends AppBackOfficeController {
 
          $resBody = $this->businessLayer->inscription($userData);
          if ($resBody->user) {
-        //  $userExists = $this->loadBy('user', 'email', $userData['email']);
-        //  if (!$userExists) {
-        //      $hash = password_hash($_POST['ins_mdp'], PASSWORD_ARGON2I);
-
-        //      $userData['mdp'] = $hash;
-        //      // User
-        //      $user = $this->fromArray($userData);
- 
-        //      $userData['user_id'] = $user->insert();
-
-        //     //  $this->render('BackOffice.inscription', compact('userData'));
-
              header('location: ' . ROUTE . '/', true, 303);
          } else {
           // $this->render('BackOffice.inscription', compact('userData'));
@@ -77,25 +65,15 @@ class UserController extends AppBackOfficeController {
     */
    public function connexion() {
   // var_dump($data);
- var_dump($_REQUEST);
+
     $userData['email'] = $_POST['con_email'];
     $userData['user_type'] = "prop";
     $userData['mdp'] = $_POST['con_mdp'];
 
     $resBody = (object) array();
     $resBody->user = $this->auth->login($userData['email'], $userData['mdp']);
-var_dump($resBody);
-    if ($resBody->user && isset($_SESSION['marketplace']['user_type'])) {
-      header('location: ' . ROUTE . 'profil', true, 303);
-  } else if ($resBody->user && isset($_SESSION['marketplace']['statut'])) {
-      header('location: ' . ROUTE . 'Tdb', true, 303);
-  }   
-//   if ($login && isset($_SESSION['marketplace']['user_type'])) {
-//     header('location: ' . ROUTE . 'profil', true, 303);
-// } else if ($loginPNM && isset($_SESSION['marketplace']['statut'])) {
-//     header('location: ' . ROUTE . 'Tdb', true, 303);
-// }
 
+    header('location: ' . ROUTE . 'profil', true, 303);
    }
 
     /**

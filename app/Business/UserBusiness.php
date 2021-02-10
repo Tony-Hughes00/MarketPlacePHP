@@ -20,9 +20,9 @@ class UserBusiness extends Business {
      * @return void    
      * 
      * */
-    public function get() {
+    // public function get() {
 
-    }
+    // }
     /**
      * Function render admin PDF view
      *
@@ -65,22 +65,22 @@ class UserBusiness extends Business {
        $userExists = $this->loadBy('User', 'email', $data['email']);
       }
       catch (Exception $e) {
-          $resBody->error;
+          $resBody->error = $e;
       }
-      // var_dump($userExists);      //  var_dump('creating user....');
+      // var_dump($data);      //  var_dump('creating user....');
        if (!$userExists) {
-           $hash = password_hash($data->body->mdp, PASSWORD_ARGON2I);
+           $hash = password_hash($data['mdp'], PASSWORD_ARGON2I);
 
            $data['mdp'] = $hash;
            $user = $this->create('User', $data);
            $resBody->user = $user;
 
-           $resBody->status = "200";
-           $resBody->statusApi = "0";
+           $resBody->status = "0";
+          //  $resBody->statusApi = "0";
            $resBody->message = "user created";
        } else {
-        $resBody->status = "200";
-        $resBody->statusApi = "1";
+        $resBody->status = "1";
+        // $resBody->statusApi = "1";
         $resBody->message = "user already exists";
         $resBody->user = $userExists;
        } 

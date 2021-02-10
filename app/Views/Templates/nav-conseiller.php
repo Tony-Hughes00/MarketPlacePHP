@@ -67,7 +67,7 @@
         <!-- ----------- -->
         <div class="dropdown">
             <button class="btn btn-outline-info p-2" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-user"></i> &nbsp;Espace utilisateur con
+                <i class="fas fa-user"></i> &nbsp;Espace utilisateur
             </button>
             <div class="dropdown-menu dropdown-menu-lg-right" style="min-width: 15rem!important;">  
                 <a class="dropdown-item" href="<?=ROUTE?>"><i class="fas fa-user">&nbsp;&nbsp;</i>Retour au site</a>

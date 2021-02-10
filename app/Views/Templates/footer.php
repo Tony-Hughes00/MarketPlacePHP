@@ -17,7 +17,7 @@
               16190 Montmoreau<br>
               <i class="fas fa-envelope"></i> <a style="text-decoration:none;font-size:medium;"
                   href="mailto:contact@mosc.fr">contact@mosc.fr</a>
-          </span></b>
+          </span>
         </div>
         </div>
       </div>

@@ -32,18 +32,9 @@ if (!isset($_COOKIE['animWatched'])) {
             <?php // Header ?>
             <header class="row">
                 <div class="col-md-2 text-center my-auto">
-                    <!-- <a href="<?=ROUTE?>">
-                        <img class="logo-hdr" src="< ?= RACINE ?>images/MarketIcon.jpg"
-                            alt="Logo Antennes Sud Charente Mobilité Icône">
-                    </a> -->
                 </div>
-
                 <div class="col-md-8 text-center">
-                    <a href="<?=ROUTE?>" style="text-decoration:none;">
-                        <h1 class="text-danger">MarketPlace default</h1>
-                        <?php // <img src="./assets/images/logo-mobilite-ouest-sud-charente.png" height=70px;> ?>
-                    </a>
-                    <?php // <img class="percent80" src="./assets/images/Transport Solidaire.PNG"> ?>
+                        <h1 class="text-danger">MarketPlace</h1>
                 </div>
                 <div class="col-md-2"></div>
             </header>
@@ -52,7 +43,7 @@ if (!isset($_COOKIE['animWatched'])) {
             // Barre de navigation
             include_once 'nav-default.php';
             ?>
-
+            
             <?= $content ?>
             
             <?php require_once ROOT . '/app/Views/Templates/footer.php'; ?>

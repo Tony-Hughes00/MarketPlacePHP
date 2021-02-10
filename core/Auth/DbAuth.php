@@ -34,7 +34,8 @@ class DbAuth {
 	 * @return boolean
 	 */
 	public function login(string $email, string $password)  {
-		$user = $this->db->prepare("SELECT user.*
+		$res = (object) array();
+		$res->user = $this->db->prepare("SELECT user.*
             FROM user 
             WHERE user.email = :email",
 		['email' => $email],
@@ -42,27 +43,32 @@ class DbAuth {
 		true);
 		// var_dump($user);
 		// var_dump($password);
-		if ($user) {
+		if ($res->user) {
 			// var_dump($user);
-			if (password_verify($password, $user->mdp)) {
+			if (password_verify($password, $res->user->mdp)) {
+				$res->status = 0;
+				$res->message = "connexion valide";
 				if (isset($_POST['remember'])) {
 					// TODO consentement cookies
 					if (isset($_COOKIE['cookieconsent_status'] ) && $_COOKIE['cookieconsent_status'] === 'allow') {
-						setcookie('rememberMe', $user->email, time() + 60 * 60 * 24 * 7);
+						setcookie('rememberMe', $res->user->email, time() + 60 * 60 * 24 * 7);
 					}
 				}
-				foreach ($user as $key => $value) {
+				foreach ($res->user as $key => $value) {
 					if ($key != 'mdp') {
 						$_SESSION['marketplace'][$key] = $value;
 					}
 				}
 				
-				return $user;
+				return $res;
 			}
-			return false;
+			$res->status = 2;				// mdp invalid
+			$res->message = "mdp invalid";
+			return $res;
 		} 
-
-		return false;
+		$res->status = 1;				// mdp invalid
+		$res->message = "utilisateur non trouvé";
+	return $res;
 	}
 
 	/**

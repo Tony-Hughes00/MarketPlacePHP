@@ -13,7 +13,7 @@ class AppBackOfficeController extends Controller {
      *
      * @var string
      */
-    protected string $_template = 'default';
+    protected string $_template = 'backoffice';
     protected string $_model_name;
     protected object $auth;
 
@@ -23,7 +23,7 @@ class AppBackOfficeController extends Controller {
     public function __construct() {
         $this->viewPath = ROOT . '/app/Views/';
         $this->auth = $this->getAuth();
-        $this->template = 'default';
+        $this->template = 'backoffice';
     }
 
     /**
@@ -54,6 +54,7 @@ class AppBackOfficeController extends Controller {
         header($_SERVER['SERVER_PROTOCOL'] . ' 403 Forbidden');
         (isset($_SESSION['marketplace']['statut'])) ? $this->template = 'default' : $this->template = 'default';
         $this->render('errors.403');
+        die('Api overloaded 403 forbidden');
     }
 
     public function isAdmin() {
@@ -73,6 +74,7 @@ class AppBackOfficeController extends Controller {
         header($_SERVER['SERVER_PROTOCOL'] . ' 404 Forbidden');
         (isset($_SESSION['marketplace']['statut'])) ? $this->template = 'default' : $this->template = 'default';
         $this->render('errors.404');
+        die('404 not found');
     }
 
 }

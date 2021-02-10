@@ -288,15 +288,15 @@
                                                             class="form-control p-2" required
                                                             onchange="onSelectCommune(this)">
                                                         <?php
-                                                            $loadCommune = App::getInstance()->getTable('Commune');
-                                                            $communes = $loadCommune->selectCommunes();
-                                                            echo '<option value="0,0" selected disabled>Sélectionnez une commune...</option>';
-                                                            foreach($communes as $commune) {
-                                                                if ($commune->id < 10000) {
-                                                                    echo '<option value="' . $commune->id . ',' . $commune->code_postal . '"';
-                                                                    echo '>' . $commune->nom . "</option>";
-                                                                }
-                                                            }
+                                                            // $loadCommune = App::getInstance()->getTable('Commune');
+                                                            // $communes = $loadCommune->selectCommunes();
+                                                            // echo '<option value="0,0" selected disabled>Sélectionnez une commune...</option>';
+                                                            // foreach($communes as $commune) {
+                                                            //     if ($commune->id < 10000) {
+                                                            //         echo '<option value="' . $commune->id . ',' . $commune->code_postal . '"';
+                                                            //         echo '>' . $commune->nom . "</option>";
+                                                            //     }
+                                                            // }
                                                         ?>
                                                     </select>
                                                 </div>

@@ -1,7 +1,8 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top shadow p-3 mb-5 rounded">
+<!-- <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top shadow p-3 mb-5 rounded"> -->
+<nav class="navbar navbar-expand-lg navbar-light sticky-top p-3 mb-5 rounded">
     <a class="navbar-brand" href="<?=ROUTE?>">
         <?php // <img class="logo-txt" style="max-height: 40px;" src="./assets/images/logo-MOSC-2.PNG"> ?>
-        <img class="logo-nav" src="<?= RACINE ?>images/MarketIcon.jpg"
+        <img class="logo-nav" src="<?= RACINE ?>images/MarketIcon.png"
             alt="Logo Antennes Sud Charente Mobilité Texte">
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -49,7 +50,7 @@
     </div>
     <div class="dropdown">
             <button class="btn btn-info p-2" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-user"></i> &nbsp;Espace utilisateur def
+                <i class="fas fa-user"></i> &nbsp;Espace utilisateur
             </button>
 
             <div class="dropdown-menu dropdown-menu-lg-right" style="min-width: 15rem!important;">   

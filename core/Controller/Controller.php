@@ -54,7 +54,7 @@ class Controller {
 		die('404 not found');
 	}
 	/**
-	 * Generate an page (if specified) for HTTP 404 errors
+	 * headers CORS pour api
 	 *
 	 * @return string
 	 */
@@ -68,15 +68,11 @@ class Controller {
 		header('Content-Type: application/json');
 
 	}
-	public function sendResponse($body) {
-
-		$resBody = (object) array();
-		$resBody->status = "200";
-		$resBody->message = "valid request";
-		$resBody->data = $body;
+	public function sendResponse($res) {
 
 		$this->sendHeaders();
-		echo json_encode($resBody); 
+		echo json_encode($res); 
+
 }
 		/**
 	 * Generate an page (if specified) for HTTP 404 errors
