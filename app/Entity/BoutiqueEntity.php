@@ -11,6 +11,7 @@ class BoutiqueEntity extends Entity {
   */
   public function __construct() {
     $this->tableName = "boutique";
+    $this->id = "id_boutique";
 
     $this->init();
     // App::console_log( "UserEntity constructor" );
@@ -19,7 +20,7 @@ class BoutiqueEntity extends Entity {
     $this->values = [
       (string) "id_boutique" => null,
       (string) "id_vendeur" => "",
-      (string) "name" => ""
+      (string) "nom_boutique" => ""
     ];
   }
 }

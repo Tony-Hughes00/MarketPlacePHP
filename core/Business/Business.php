@@ -29,6 +29,9 @@ private function getEntity($tableName) {
 	public function load($table, $col, $val) {
 		return $this->getEntity($table)->loadByCol($col, $val);
 	}
+	public function loadAll($table) {
+		return $this->getEntity($table)->all();
+	}
 	public function loadBy($table, $col, $val)
 	{
 		return $this->getEntity($table)->loadByCol($col, $val);

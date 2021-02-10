@@ -24,9 +24,21 @@ class BoutiqueController extends AppBackOfficeController {
 
     if (count($boutique) == 0 ) {
       $this->render('backoffice.boutique', compact('boutique'));
-    } if (count($boutique) == 1) {
-      $this->render('backoffice.tdb', compact('boutique'));
+    } else {
+    header('location: ' . ROUTE . '/tdb', true, 303);
+      // $this->render('backoffice.tdb', compact('boutique'));
     } 
 
+  }
+  public function update() {
+
+    // var_dump($_REQUEST);
+
+    $boutique = $this->businessLayer->update($_REQUEST);
+
+    // $boutique->message = "testing....";
+
+    header('location: ' . ROUTE . '/tdb', true, 303);
+    // $this->render('backoffice.tdb', compact('boutique'));
   }
 }

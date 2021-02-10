@@ -9,6 +9,7 @@ use \App\Table;
  */
 class Entity {
 	protected $values;
+	protected $id;
 	public $tableName = "";
 
 	public function __construct() {
@@ -46,26 +47,17 @@ public function create($row) {
 	$this->fill($row);
 	return $this->insert();
 }
+public function update($row) {
+	$this->fill($row);
+	return $this->update($row[$this->id], $this->values);
+}
+public function all() {
+	$table = App::getInstance()->getTable($this->tableName);
+	return $table->all();
+}
 public function initEntity($row) {
 	return $this->fill($row);
 }
-// public static function create($tableName, array $row) {
-// 	$table = App::getInstance()->getTable($tableName);
-// })
-// public static function loadBy($tableName, $col, $val ) {
-// 	// do query
-// //	$instance = new self();
-// // var_dump('Entity loadBy');
-
-// 	// $table = $tableName . "Table";
-// 	$table = App::getInstance()->getTable($tableName);
-// 	// $instance = new $table();
-// 	$row = $table->selectBy($col, $val);
-// 	if ($row) {
-// 		return $this->fill( $row );
-// 	}
-// 	return $row;
-// }
 public function loadByCol($col, $value ) {
 		// do query
 		$table = App::getInstance()->getTable($this->tableName);

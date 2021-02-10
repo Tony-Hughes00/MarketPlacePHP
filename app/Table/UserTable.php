@@ -94,6 +94,7 @@ class UserTable extends Table {
      * @param array $data
      * @return object
      */
+
     public function insertProprietaire(array $data) {
         $data['user_type'] = 'prop';
         $data['valide'] = false;

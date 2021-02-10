@@ -78,7 +78,6 @@ class Table {
 		$sql_part = implode(', ', $sql_parts);
 		return $this->query("UPDATE {$this->table} SET {$sql_part} WHERE id = ?", $attr, true);
 	}
-
 	/**
 	 * Insert into table
 	 *

@@ -73,7 +73,7 @@ class UserController extends AppBackOfficeController {
     $resBody = (object) array();
     $resBody->user = $this->auth->login($userData['email'], $userData['mdp']);
 
-    header('location: ' . ROUTE . 'profil', true, 303);
+    header('location: ' . ROUTE . 'boutique', true, 303);
    }
 
     /**

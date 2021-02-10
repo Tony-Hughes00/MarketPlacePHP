@@ -49,40 +49,30 @@ class BoutiqueTable extends Table {
     public function insert(array $data) {
         // var_dump($data);
         return $this->query("INSERT INTO {$this->table} (
-            email,
-            mdp,
-            user_type,
-            nom,
-            prenom,
-            civilite,
-            valide,
-            changeMDP,
-            created_by
+            id_vendeur,
+            nom_boutique
         ) VALUES (
-            :email,
-            :mdp,
-            :user_type,
-            :nom,
-            :prenom,
-            :civilite,
-            :valide,
-            :changeMDP,
-            :created_by
+            :id_vendeur,
+            :nom_boutique
         )",
         [
-            'email' => $data['email'],
-            'mdp' => $data['mdp'],
-            'user_type' => $data['user_type'],
-            'nom' => $data['nom'],
-            'prenom' => $data['prenom'],
-            'civilite' => $data['civilite'],
-            'valide' => $data['valide'],            
-            'changeMDP' => $data['changeMDP'],
-            'created_by' => $data['created_by']
+            'id_vendeur' => $data['id_vendeur'],
+            'nom_boutique' => $data['nom_boutique']
         ],
         true);
     }
-
+    public function update($id, $data) {
+      return $this->query("UPDATE {$this->table} SET
+                  id_vendeur = :id_vendeur,
+                  nom_boutique = :nom_boutique
+              WHERE id_boutique = :id",
+              [
+                  'id' => $id,
+                  'id_vendeur' => $data['id_vendeur'],
+                  'nom_boutique' => $data['nom_boutique']
+              ],
+              true);
+      }
     /**
      * DELETE query
      *

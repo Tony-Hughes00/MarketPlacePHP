@@ -29,27 +29,27 @@ class UserBusiness extends Business {
      * @return void
      */
 
-      /*
-      * Function render inscription post submit
-      *
-      * @return void
-      */
-     public function post($data) {
+    //   /*
+    //   * Function render inscription post submit
+    //   *
+    //   * @return void
+    //   */
+    //  public function post($data) {
 
-         $userExists = $this->loadBy('user', 'email', $data['email']);
-         if (!$userExists) {
-             $hash = password_hash($_POST['ins_mdp'], PASSWORD_ARGON2I);
+    //      $userExists = $this->loadBy('user', 'email', $data['email']);
+    //      if (!$userExists) {
+    //          $hash = password_hash($_POST['ins_mdp'], PASSWORD_ARGON2I);
 
-             $userData['mdp'] = $hash;
-             // User
-             $user = $this->fromArray('User', $userData);
+    //          $userData['mdp'] = $hash;
+    //          // User
+    //          $user = $this->fromArray('User', $userData);
  
-             $userData['user_id'] = $user->insert();
-             $userData['user'] = $user;
+    //          $userData['user_id'] = $user->insert();
+    //          $userData['user'] = $user;
 
-            return $userData;
-         }
-    }
+    //         return $userData;
+    //      }
+    // }
     /**
      * Function render admin PDF view
      *

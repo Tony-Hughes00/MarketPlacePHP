@@ -11,6 +11,7 @@ class UserEntity extends Entity {
   */
   public function __construct() {
     $this->tableName = "user";
+    $this->id = "id_user";
 
     $this->init();
     // App::console_log( "UserEntity constructor" );
