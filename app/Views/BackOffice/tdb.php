@@ -1,6 +1,6 @@
 <?php
 
-var_dump($boutique);
+// var_dump($boutique);
 ?>
 <div class="row">
 <?php
@@ -10,4 +10,16 @@ var_dump($boutique);
     echo '</div>';
   }
 ?>
+</div>
+<div class="row">
+  <div class="col-12 col-md-4">
+    Vents
+  </div>
+  <div class="col-12 col-md-4">
+    Stock
+  </div>
+  <div class="col-12 col-md-4">
+    products
+  </div>
+
 </div>

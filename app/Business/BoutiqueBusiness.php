@@ -14,27 +14,32 @@ class BoutiqueBusiness extends Business {
 
   }
 
-  public function get($table) {
-    $boutiques = $this->loadAll($table);
+  // public function get($table) {
+  //   $boutiques = $this->loadAll($table);
 
-    return $boutiques;
-  }
+  //   return $boutiques;
+  // }
   public function getByUser($userId) {
 
-    $boutiques = $this->loadBy('Boutique', 'id_vendeur', $userId);
-
+    $boutiques = $this->getByCol('Boutique', 'id_vendeur', $userId);
+// var_dump($boutiques);
     return $boutiques;
   }
+  public function getById($id_boutique) {
 
+    $boutiques = $this->getByCol('Boutique', 'id_boutique', $id_boutique);
+// var_dump($boutiques);
+    return (get_object_vars($boutiques)['0']);
+  }
   public function update($data) {
 
     $resBody = (object) array();
     $resBody->testMessage = 'creating user...';
     // $rsBody->reqData = $data->body;
     $data['id_vendeur'] = $this->UserId();
-
+// var_dump(($data));
     try {
-     $boutiqueExists = $this->loadBy('Boutique', 'id_boutique', $data['id_boutique']);
+     $boutiqueExists = $this->getByCol('Boutique', 'id_boutique', $data['id_boutique']);
     }
     catch (Exception $e) {
         $resBody->error = $e;

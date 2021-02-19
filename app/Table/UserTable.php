@@ -40,11 +40,11 @@ class UserTable extends Table {
     //     ['email' => $email],
     //     true);
     // }
-    public function selectBy($col, string $email) {
-        // var_dump("SELECT * FROM {$this->table} WHERE {$col} = '{$email}'");
+    // public function selectBy($col, string $email) {
+    //     // var_dump("SELECT * FROM {$this->table} WHERE {$col} = '{$email}'");
 
-        return $this->query("SELECT * FROM {$this->table} WHERE {$col} = '{$email}'");
-    }
+    //     return $this->query("SELECT * FROM {$this->table} WHERE {$col} = '{$email}'");
+    // }
     /**
      * INSERT query
      *

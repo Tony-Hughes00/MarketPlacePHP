@@ -1,6 +1,7 @@
 
 <?php
-// var_dump($user);
+var_dump($boutique);
+var_dump($_SESSION);
 ?>
 <form class="backoffice" method="post" action="<?=ROUTE?>boutique">
   <fieldset>
@@ -16,11 +17,11 @@
                  required
             <?php
             if ($boutique != null) {
-              // echo ' value = "' . $boutique->nom . '"';
+              echo ' value = "' . $boutique->nom_boutique . '"';
             }
             ?>
             >
-        <?php var_dump($boutique); ?>
+        <!-- < ?php var_dump($boutique); ?> -->
         </div>
       </div>
       <div class="col-12">

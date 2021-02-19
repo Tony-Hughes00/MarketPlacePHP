@@ -62,7 +62,7 @@ class UserBusiness extends Business {
       $resBody->testMessage = 'creating user...';
       // $rsBody->reqData = $data->body;
       try {
-       $userExists = $this->loadBy('User', 'email', $data['email']);
+       $userExists = $this->getByCol('User', 'email', $data['email']);
       }
       catch (Exception $e) {
           $resBody->error = $e;
@@ -92,7 +92,7 @@ class UserBusiness extends Business {
     $resBody->testMessage = 'connexion...';
 
     $resBody->user = $this->auth->login($data['email'], $data['mdp']);
-
+var_dump($resBody);
     if ($resBody->user) {
       $resBody->status = 1;
       $resBody->message = "connexion failed";

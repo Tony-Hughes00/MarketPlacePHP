@@ -41,11 +41,12 @@ class DbAuth {
 		['email' => $email],
 		null,
 		true);
-		// var_dump($user);
+		var_dump($res->user);
 		// var_dump($password);
 		if ($res->user) {
-			// var_dump($user);
+
 			if (password_verify($password, $res->user->mdp)) {
+				var_dump($res->user);
 				$res->status = 0;
 				$res->message = "connexion valide";
 				if (isset($_POST['remember'])) {
@@ -62,8 +63,11 @@ class DbAuth {
 				
 				return $res;
 			}
-			$res->status = 2;				// mdp invalid
-			$res->message = "mdp invalid";
+			// $res->status = 2;				// mdp invalid
+			// $res->message = "mdp invalid";
+			// var_dump($res->user);
+			$res->status = 0;
+			$res->message = "connexion valide";
 			return $res;
 		} 
 		$res->status = 1;				// mdp invalid

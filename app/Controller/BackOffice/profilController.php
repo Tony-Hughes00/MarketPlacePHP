@@ -14,15 +14,11 @@ class ProfilController extends AppBackOfficeController {
         $this->businessLayer = new business\ProfileBusiness();
 
     }
-    public function get() {
+    public function getProfil() {
       $this->Titre('Profil');
 
-      // $this->console_log($this->UserId());
-
-      $user = $this->businessLayer->getProfile();
-      // $this->console_log($user);
-      // var_dump($user);
-      // $test = $_SESSION;
+      $user = $this->businessLayer->getProfil();
+      var_dump($user);
       $this->render('backoffice.profil', compact('user'));
     }
   }

@@ -59,15 +59,13 @@ public function initEntity($row) {
 	return $this->fill($row);
 }
 public function loadByCol($col, $value ) {
-		// do query
+
 		$table = App::getInstance()->getTable($this->tableName);
-		return $table->selectBy($col, $value);
-		// $row = $table->selectBy($col, $value);
-		// if ($row) {
-		// 	var_dump($row);
-		// 	return $this->fill( $row );
-		// }
-		// return $row;
+		$entity = $table->selectBy($col, $value);
+		if (empty($entity)) {
+			return null;
+		}
+		return (object)$entity;
 }
   public function fill( $row ) {
 		// fill all properties from array

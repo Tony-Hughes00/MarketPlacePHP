@@ -25,7 +25,8 @@ protected $businessLayer;
 
         // $resBody =(object) array();
         $res = $this->getAuth()->login($userData['email'], $userData['mdp']);
-        // var_dump($resBody);
+        // $res = $user->user;;
+        // var_dump($res);
 // $resBody = "";
 // $this->sendHeaders();
         $this->sendResponse($res);

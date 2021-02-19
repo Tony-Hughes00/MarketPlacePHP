@@ -15,19 +15,31 @@ class BoutiqueController extends AppBackOfficeController {
     $this->businessLayer = new business\BoutiqueBusiness();
 
   }
+  public function boutiqueById() {
+    $idParts = explode('.', $_GET['url']);
+    $idClean = array_filter($idParts);
+    $id_boutique = intval(end($idClean));
 
+    $boutique = $this->businessLayer->getById($id_boutique);
+
+    $this->render('backoffice.boutique', compact('boutique'));
+
+  }
   public function boutique() {
-
+// var_dump(($_SESSION));
     $userId = $this->businessLayer->UserId();
 
     $boutique = $this->businessLayer->getByUser($userId);
-
-    if (count($boutique) == 0 ) {
+// var_dump($boutique);
+    $countBoutique = count((array)$boutique);
+    if ($countBoutique == 0 ) {
       $this->render('backoffice.boutique', compact('boutique'));
-    } else {
-    header('location: ' . ROUTE . '/tdb', true, 303);
+    } else if ($countBoutique  == 1){
+      header('location: ' . ROUTE . '/tdb', true, 303);
       // $this->render('backoffice.tdb', compact('boutique'));
-    } 
+    } else {
+      header('location: ' . ROUTE . '/profil', true, 303);
+    }
 
   }
   public function update() {

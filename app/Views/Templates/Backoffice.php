@@ -34,14 +34,18 @@ if (!isset($_COOKIE['animWatched'])) {
                 <div class="col-md-2 text-center my-auto">
                 </div>
                 <div class="col-md-8 text-center">
-                        <h1 class="text-danger">MarketPlace</h1>
+                        <h1 class="text-danger">MarketPlace Backoffice</h1>
                 </div>
                 <div class="col-md-2"></div>
             </header>
 
             <?php
             // Barre de navigation
-            include_once 'nav-default.php';
+            if (isset($_SESSION['marketplace']['email']) || isset($_SESSION['marketplace']['statut'])) {
+                include_once 'nav-backoffice.php';
+            } else {
+                include_once 'nav-default.php';
+            }
             ?>
             
             <?= $content ?>

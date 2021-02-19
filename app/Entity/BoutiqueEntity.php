@@ -16,7 +16,7 @@ class BoutiqueEntity extends Entity {
     $this->init();
     // App::console_log( "UserEntity constructor" );
   }
-  private function init() {
+  public function init() {
     $this->values = [
       (string) "id_boutique" => null,
       (string) "id_vendeur" => "",

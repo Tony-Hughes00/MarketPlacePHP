@@ -70,12 +70,13 @@ $router->post('/connexion', 'backoffice.User.connexion');
 // $router->get('/logout', 'backoffice.connexion.logout');
 
 
-$router->post('/profil', 'backoffice.profil.get');
-$router->get('/profil', 'backoffice.profil.get');
+$router->post('/profil', 'backoffice.profil.getProfil');
+$router->get('/profil', 'backoffice.profil.getProfil');
 
 $router->get('/boutique', 'backoffice.boutique.boutique');
+$router->get('/boutiqueById.:id', 'backoffice.boutique.boutiqueById');
 $router->post('/boutique', 'backoffice.boutique.update');
 
-$router->get('/tdb', 'backoffice.tdb.get');
+$router->get('/tdb', 'backoffice.tdb.getTdb');
 
 $router->run();

@@ -14,12 +14,12 @@ class TdbController extends AppBackOfficeController {
         $this->businessLayer = new business\TdbBusiness();
 
     }
-    public function get() {
+    public function getTdb() {
       $this->Titre('Tableau de Bord');
-
+var_dump($_SESSION);
       // $this->console_log($this->UserId());
 
-      $boutique = $this->businessLayer->get();
+      $boutique = $this->businessLayer->getTdb();
       // $this->console_log($user);
       // var_dump($user);
       // $test = $_SESSION;

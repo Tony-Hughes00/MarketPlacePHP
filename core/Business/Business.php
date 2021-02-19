@@ -20,6 +20,11 @@ protected object $auth;
     protected function getAuth() {
 			return new DbAuth (App::getInstance()->getDb());
 	}
+	public function get($table) {
+    $data = $this->loadAll($table);
+
+    return $data;
+  }
 private function getEntity($tableName) {
 		if ($this->entityFactory == null) {
 			$this->entityFactory = new EntityFactory();
@@ -30,9 +35,10 @@ private function getEntity($tableName) {
 		return $this->getEntity($table)->loadByCol($col, $val);
 	}
 	public function loadAll($table) {
+		// var_dump(($table));
 		return $this->getEntity($table)->all();
 	}
-	public function loadBy($table, $col, $val)
+	public function getByCol($table, $col, $val)
 	{
 		return $this->getEntity($table)->loadByCol($col, $val);
 	}

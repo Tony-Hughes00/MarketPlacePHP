@@ -20,10 +20,11 @@ class ProfileBusiness extends Business {
      * @return void    
      * 
      * */
-    public function getProfile() {
-      $user = null;
+    public function getProfil(): object {
+      // $user = (object) array();
       $user = $this->load('User', 'id_user', $this->UserId());
 
+      $user->boutique = $this->getByCol('Boutique', 'id_vendeur', $user->id_user);
       return $user;
     }
 }

@@ -71,9 +71,15 @@ class UserController extends AppBackOfficeController {
     $userData['mdp'] = $_POST['con_mdp'];
 
     $resBody = (object) array();
-    $resBody->user = $this->auth->login($userData['email'], $userData['mdp']);
-
-    header('location: ' . ROUTE . 'boutique', true, 303);
+    $resBody = $this->auth->login($userData['email'], $userData['mdp']);
+// var_dump($resBody);
+    if ($resBody->status == 0) {
+      header('location: ' . ROUTE . 'boutique', true, 303);
+    } else {
+      // header('location: ' . ROUTE, true, 303);
+      // header('location: ' . ROUTE . 'boutique', true, 303);
+      $this->render('backoffice.noConnexion');
+    }
    }
 
     /**

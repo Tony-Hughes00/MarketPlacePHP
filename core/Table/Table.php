@@ -120,5 +120,13 @@ class Table {
 		}
 		return $return;
 	}
+	public function selectBy($col, string $email) {
 
+		$recordset = $this->query("SELECT * FROM {$this->table} WHERE {$col} = '{$email}'");
+
+		if (count((array)$recordset) == 1) {
+			return ((array)$recordset)[0];
+		}
+		return $recordset;
+}
 }
