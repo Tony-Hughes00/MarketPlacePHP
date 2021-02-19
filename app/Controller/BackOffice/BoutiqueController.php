@@ -35,7 +35,7 @@ class BoutiqueController extends AppBackOfficeController {
     if ($countBoutique == 0 ) {
       $this->render('backoffice.boutique', compact('boutique'));
     } else if ($countBoutique  == 1){
-      header('location: ' . ROUTE . '/tdb', true, 303);
+      header('location: ' . ROUTE . '/tdb.$boutique->id_boutique', true, 303);
       // $this->render('backoffice.tdb', compact('boutique'));
     } else {
       header('location: ' . ROUTE . '/profil', true, 303);
@@ -50,7 +50,7 @@ class BoutiqueController extends AppBackOfficeController {
 
     // $boutique->message = "testing....";
 
-    header('location: ' . ROUTE . '/tdb', true, 303);
+    header('location: ' . ROUTE . '/tdb.$boutique->id_boutique', true, 303);
     // $this->render('backoffice.tdb', compact('boutique'));
   }
 }

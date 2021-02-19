@@ -5,8 +5,9 @@ This is the backoffice profile
 // var_dump($user->boutique);
 
   foreach ($user->boutique as $b) {
-    echo '<div class="col"><a href="boutiqueById.' . $b->id_boutique . '"><i class="fas fa-user-edit" alt="modifier"></i></a>';
-      echo $b->nom_boutique;
+    echo '<div class="col"><a href="boutiqueById.' . $b->id_boutique . '"><i class="far fa-edit" alt="modifier"></i></a>';
+    echo $b->nom_boutique;
+    echo '<a href="tdb.' . $b->id_boutique . '"><i class="fas fa-store" alt="modifier"></i></a>';
     echo '</div>';
   }
 

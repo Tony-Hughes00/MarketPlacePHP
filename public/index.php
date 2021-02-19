@@ -77,6 +77,6 @@ $router->get('/boutique', 'backoffice.boutique.boutique');
 $router->get('/boutiqueById.:id', 'backoffice.boutique.boutiqueById');
 $router->post('/boutique', 'backoffice.boutique.update');
 
-$router->get('/tdb', 'backoffice.tdb.getTdb');
+$router->get('/tdb.:id', 'backoffice.tdb.getTdb');
 
 $router->run();

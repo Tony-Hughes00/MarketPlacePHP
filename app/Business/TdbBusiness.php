@@ -20,9 +20,9 @@ class TdbBusiness extends Business {
      * @return void    
      * 
      * */
-    public function getTdb() {
+    public function getTdb($id_boutique) {
 
-      $boutique = $this->load('Boutique', 'id_vendeur', $this->UserId());
+      $boutique = $this->load('Boutique', 'id_boutique', $id_boutique);
 var_dump($boutique);
       return $boutique;
     }

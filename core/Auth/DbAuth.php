@@ -37,7 +37,7 @@ class DbAuth {
 		$res = (object) array();
 		$res->user = $this->db->prepare("SELECT user.*
             FROM user 
-            WHERE user.email = :email",
+            WHERE user.email = :email AND NOT (user_type = 'client')",
 		['email' => $email],
 		null,
 		true);
@@ -82,37 +82,46 @@ class DbAuth {
 	 * @param string $password
 	 * @return boolean
 	 */
-	public function loginPNM(string $email, string $password) :bool {
-		$user = $this->db->prepare("SELECT techniciens.*, users.*
-            FROM (techniciens
-            INNER JOIN users ON techniciens.users_id = users.id)
-            WHERE users.email = :email",
+	public function loginUser(string $email, string $password) {
+		$res = (object) array();
+		$res->user = $this->db->prepare("SELECT user.*
+            FROM user 
+            WHERE user.email = :email AND user_type = 'client'",
 		['email' => $email],
 		null,
 		true);
+		var_dump($res->user);
+		// var_dump($password);
+		if ($res->user) {
 
-		if ($user) {
-			if (password_verify($password, $user->mdp)) {
+			if (password_verify($password, $res->user->mdp)) {
+				var_dump($res->user);
+				$res->status = 0;
+				$res->message = "connexion valide";
 				if (isset($_POST['remember'])) {
 					// TODO consentement cookies
 					if (isset($_COOKIE['cookieconsent_status'] ) && $_COOKIE['cookieconsent_status'] === 'allow') {
-						setcookie('rememberMe', $user->email, time() + 60 * 60 * 24 * 7);
+						setcookie('rememberMe', $res->user->email, time() + 60 * 60 * 24 * 7);
 					}
 				}
-
-				foreach ($user as $key => $value) {
+				foreach ($res->user as $key => $value) {
 					if ($key != 'mdp') {
 						$_SESSION['marketplace'][$key] = $value;
 					}
 				}
 				
-				return true;
+				return $res;
 			}
-		} else {
-			header('location: ' . ROUTE . 'connexion', true, 303);
-		}
-
-		return false;
+			// $res->status = 2;				// mdp invalid
+			// $res->message = "mdp invalid";
+			// var_dump($res->user);
+			$res->status = 0;
+			$res->message = "connexion valide";
+			return $res;
+		} 
+		$res->status = 1;				// mdp invalid
+		$res->message = "utilisateur non trouvé";
+	return $res;
 	}
 
 	/**

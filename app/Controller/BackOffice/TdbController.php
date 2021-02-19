@@ -16,10 +16,15 @@ class TdbController extends AppBackOfficeController {
     }
     public function getTdb() {
       $this->Titre('Tableau de Bord');
+
+      $idParts = explode('.', $_GET['url']);
+      $idClean = array_filter($idParts);
+      $id_boutique = intval(end($idClean));
+
 var_dump($_SESSION);
       // $this->console_log($this->UserId());
 
-      $boutique = $this->businessLayer->getTdb();
+      $boutique = $this->businessLayer->getTdb($id_boutique);
       // $this->console_log($user);
       // var_dump($user);
       // $test = $_SESSION;
