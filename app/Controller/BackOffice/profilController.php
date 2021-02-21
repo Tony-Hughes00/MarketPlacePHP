@@ -18,7 +18,7 @@ class ProfilController extends AppBackOfficeController {
       $this->Titre('Profil');
 
       $user = $this->businessLayer->getProfil();
-      var_dump($user);
+      // var_dump($user);
       $this->render('backoffice.profil', compact('user'));
     }
   }

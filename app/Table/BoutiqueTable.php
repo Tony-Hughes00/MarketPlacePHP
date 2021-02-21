@@ -4,15 +4,6 @@ namespace App\Table;
 
 use Core\Table\Table;
 
-// `id_user` int(11) NOT NULL AUTO_INCREMENT,
-// `email` varchar(255) NOT NULL,
-// `password` varchar(255) NOT NULL,
-// `user_type` enum('prop','client','gerant','admin') NOT NULL,
-// `valide` tinyint(4) DEFAULT NULL,
-// `changeMDP` tinyint(4) NOT NULL DEFAULT '1',
-// `created_by` int(11) NOT NULL,
-// `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-
 class BoutiqueTable extends Table {
     
     protected $table = 'boutique';
@@ -46,30 +37,37 @@ class BoutiqueTable extends Table {
      * @param array $data
      * @return object
      */
-    public function insert(array $data) {
-        // var_dump($data);
+    public function insert(object $data) {
+        var_dump($data);
         return $this->query("INSERT INTO {$this->table} (
             id_vendeur,
-            nom_boutique
+            nom_boutique,
+            img_boutique
         ) VALUES (
             :id_vendeur,
-            :nom_boutique
+            :nom_boutique,
+            :img_boutique
         )",
         [
-            'id_vendeur' => $data['id_vendeur'],
-            'nom_boutique' => $data['nom_boutique']
+            'id_vendeur' => $data->id_vendeur,
+            'nom_boutique' => $data->nom_boutique,
+            'img_boutique' => $data->img_boutique
         ],
         true);
     }
-    public function update($id, $data) {
+    public function update($id, array $data) {
+        var_dump($data);
+        var_dump($id);
       return $this->query("UPDATE {$this->table} SET
                   id_vendeur = :id_vendeur,
-                  nom_boutique = :nom_boutique
+                  nom_boutique = :nom_boutique,
+                  img_boutique = :img_boutique
               WHERE id_boutique = :id",
               [
                   'id' => $id,
                   'id_vendeur' => $data['id_vendeur'],
-                  'nom_boutique' => $data['nom_boutique']
+                  'nom_boutique' => $data['nom_boutique'],
+                  'img_boutique' => $data['img_boutique']
               ],
               true);
       }

@@ -57,6 +57,9 @@ $router->get('/api/logout', 'api.User.logout');
 
 $router->options('/api/boutique', 'api.AppApi.options');
 $router->get('/api/boutique', 'api.boutique.getAll');
+
+$router->options('/api/categories', 'api.AppApi.options');
+$router->get('/api/categories', 'api.category.getAll');
 // backoffice
 // inscription
 $router->get('/inscription', 'backoffice.User.get');
@@ -74,9 +77,10 @@ $router->post('/profil', 'backoffice.profil.getProfil');
 $router->get('/profil', 'backoffice.profil.getProfil');
 
 $router->get('/boutique', 'backoffice.boutique.boutique');
-$router->get('/boutiqueById.:id', 'backoffice.boutique.boutiqueById');
 $router->post('/boutique', 'backoffice.boutique.update');
+$router->get('/boutiqueById.:id', 'backoffice.boutique.boutiqueById');
 
 $router->get('/tdb.:id', 'backoffice.tdb.getTdb');
+// $router->post('/tdb.:id', 'backoffice.tdb.getTdb');
 
 $router->run();

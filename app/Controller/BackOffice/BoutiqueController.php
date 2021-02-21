@@ -21,7 +21,7 @@ class BoutiqueController extends AppBackOfficeController {
     $id_boutique = intval(end($idClean));
 
     $boutique = $this->businessLayer->getById($id_boutique);
-
+var_dump($boutique);
     $this->render('backoffice.boutique', compact('boutique'));
 
   }
@@ -35,22 +35,26 @@ class BoutiqueController extends AppBackOfficeController {
     if ($countBoutique == 0 ) {
       $this->render('backoffice.boutique', compact('boutique'));
     } else if ($countBoutique  == 1){
-      header('location: ' . ROUTE . '/tdb.$boutique->id_boutique', true, 303);
+      header('location: ' . ROUTE . 'tdb.$boutique->id_boutique', true, 303);
       // $this->render('backoffice.tdb', compact('boutique'));
     } else {
-      header('location: ' . ROUTE . '/profil', true, 303);
+      header('location: ' . ROUTE . 'profil', true, 303);
     }
 
   }
   public function update() {
+    var_dump($_FILES);
+    var_dump($_REQUEST);
+    $id_boutique = 0;
+    if (isset($_REQUEST['id_boutique']) && ($_REQUEST['id_boutique'] > 0)) {
+      $id_boutique = $_REQUEST['id_boutique'];
+    }
 
-    // var_dump($_REQUEST);
-
-    $boutique = $this->businessLayer->update($_REQUEST);
+    $boutique = $this->businessLayer->update($id_boutique, $_REQUEST, $_FILES);    
 
     // $boutique->message = "testing....";
 
-    header('location: ' . ROUTE . '/tdb.$boutique->id_boutique', true, 303);
-    // $this->render('backoffice.tdb', compact('boutique'));
+    // header('location: ' . ROUTE . '/tdb.' . $boutique->id_boutique, true, 303);
+    $this->render('backoffice.boutique', compact('boutique'));
   }
 }

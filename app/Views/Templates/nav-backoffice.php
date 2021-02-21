@@ -18,10 +18,10 @@
                 <a class="nav-link" href="<?=ROUTE?>">ACCUEIL<span class="sr-only">(actuel)</span></a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="<?=ROUTE?>/tdb">Tableau de Bord<span class="sr-only">(actuel)</span></a>
+                <a class="nav-link" href="<?=ROUTE?>tdb">Tableau de Bord<span class="sr-only">(actuel)</span></a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="<?=ROUTE?>/profil">Profil<span class="sr-only">(actuel)</span></a>
+                <a class="nav-link" href="<?=ROUTE?>profil">Profil<span class="sr-only">(actuel)</span></a>
             </li>            
             <li class="nav-item dropdown">
                 <a class="nav-link" id="navbarDropdown1" role="button" data-toggle="dropdown"

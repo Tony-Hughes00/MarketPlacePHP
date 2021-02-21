@@ -30,11 +30,14 @@ class EntityFactory {
       case 'User':
         $entity = new App\Entity\UserEntity();
         break;
-        case 'Boutique':
-          $entity = new App\Entity\BoutiqueEntity();
-          break;
-        default:
-      break;
+      case 'Boutique':
+        $entity = new App\Entity\BoutiqueEntity();
+        break;
+      case 'Category':
+        $entity = new App\Entity\CategoryEntity();
+        break;
+      default:
+        break;
     }
     // var_dump($col);
     // var_dump($value);

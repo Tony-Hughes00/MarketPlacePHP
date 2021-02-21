@@ -29,35 +29,29 @@ class BoutiqueBusiness extends Business {
 
     $boutiques = $this->getByCol('Boutique', 'id_boutique', $id_boutique);
 // var_dump($boutiques);
-    return (get_object_vars($boutiques)['0']);
+    return ($boutiques['0']);
   }
-  public function update($data) {
-
-    $resBody = (object) array();
-    $resBody->testMessage = 'creating user...';
-    // $rsBody->reqData = $data->body;
-    $data['id_vendeur'] = $this->UserId();
-// var_dump(($data));
-    try {
-     $boutiqueExists = $this->getByCol('Boutique', 'id_boutique', $data['id_boutique']);
+  public function update($id_boutique, $data, $files) {
+    
+    $imgName = "";
+    if (isset($files['boutiqueImage']['name'])) {
+      $imgName = $files['boutiqueImage']['name'];
     }
-    catch (Exception $e) {
-        $resBody->error = $e;
-    }
-    if (!$boutiqueExists) {
-      $boutique = $this->create('Boutique', $data);
-      $resBody->boutique = $boutique;
+    $data['img_boutique'] = $imgName;
+    var_dump($data);
 
-      $resBody->status = "0";
-     //  $resBody->statusApi = "0";
-      $resBody->message = "boutique created";
+    if ($id_boutique > 0) {
+      $boutique = $this->load('Boutique', 'id_boutique', $data['id_boutique']);
+      $boutique = $boutique->update($data);
+      var_dump($boutique);
     } else {
-      $resBody->status = "1";
-      // $resBody->statusApi = "1";
-      $resBody->message = "user already exists";
-      $boutiqueExists->update();
-      $resBody->boutique = $boutiqueExists;
-    } 
-    return $resBody;
+      $data['id_vendeur'] = $this->UserId();
+      $boutique = $this->businessLayer->create('Boutique', $data);
+      var_dump($boutique);
+    }
+    $tele = new TelechargementBusiness();
+    $tele->upload($boutique->id_boutique, $files);
+
+    return $boutique;
   }
 }

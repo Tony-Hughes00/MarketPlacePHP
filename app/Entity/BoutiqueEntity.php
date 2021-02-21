@@ -14,13 +14,14 @@ class BoutiqueEntity extends Entity {
     $this->id = "id_boutique";
 
     $this->init();
-    // App::console_log( "UserEntity constructor" );
   }
   public function init() {
     $this->values = [
       (string) "id_boutique" => null,
       (string) "id_vendeur" => "",
-      (string) "nom_boutique" => ""
+      (string) "nom_boutique" => "",
+      (string) "img_boutique" => ""
     ];
+
   }
 }

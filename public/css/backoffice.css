@@ -136,3 +136,7 @@
   content: "3";
   font-weight: 900;
 }
+
+.form-backoffice, input {
+  border-color: aquamarine;
+}

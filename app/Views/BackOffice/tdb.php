@@ -1,14 +1,14 @@
 <?php
 
-// var_dump($boutique);
+var_dump($boutique);
 ?>
 <div class="row">
 <?php
-  foreach ($boutique as $b) {
+  // foreach ($boutique as $b) {
     echo '<div class="col">';
-      echo $b->nom_boutique;
+      echo $boutique->nom_boutique;
     echo '</div>';
-  }
+  // }
 ?>
 </div>
 <div class="row">

@@ -24,6 +24,6 @@ class TdbBusiness extends Business {
 
       $boutique = $this->load('Boutique', 'id_boutique', $id_boutique);
 var_dump($boutique);
-      return $boutique;
+      return $boutique[0];
     }
 }

@@ -32,7 +32,8 @@ private function getEntity($tableName) {
 		return $this->entityFactory->get($tableName);
 	}
 	public function load($table, $col, $val) {
-		return $this->getEntity($table)->loadByCol($col, $val);
+		// la requête doit retourne une seule record
+		return $this->getEntity($table)->loadByCol($col, $val)[0];
 	}
 	public function loadAll($table) {
 		// var_dump(($table));

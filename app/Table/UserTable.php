@@ -29,22 +29,6 @@ class UserTable extends Table {
         true);
     }
 
-    // /**
-    //  * SELECT a user with email field
-    //  *
-    //  * @param string $email
-    //  * @return boolean
-    //  */
-    // public function selectUserByEmail(string $email) {
-    //     return $this->query("SELECT * FROM {$this->table} WHERE email = '{$email}'",
-    //     ['email' => $email],
-    //     true);
-    // }
-    // public function selectBy($col, string $email) {
-    //     // var_dump("SELECT * FROM {$this->table} WHERE {$col} = '{$email}'");
-
-    //     return $this->query("SELECT * FROM {$this->table} WHERE {$col} = '{$email}'");
-    // }
     /**
      * INSERT query
      *

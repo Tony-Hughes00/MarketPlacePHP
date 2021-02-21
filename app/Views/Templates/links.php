@@ -11,4 +11,5 @@
     <link rel="stylesheet" href="<?= RACINE ?>css/style.css">
     <link rel="stylesheet" href="<?= RACINE ?>css/profil.css">
     <link rel="stylesheet" href="<?= RACINE ?>css/parcours.css">
+    <link rel="stylesheet" href="<?= RACINE ?>css/upload.css">
 

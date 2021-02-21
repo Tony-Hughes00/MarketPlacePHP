@@ -45,11 +45,18 @@ public static function withRow( array $row ) {
 }
 public function create($row) {
 	$this->fill($row);
-	return $this->insert();
+	$this->insert();
+	return $this;
 }
-public function update($row) {
-	$this->fill($row);
-	return $this->update($row[$this->id], $this->values);
+public function update($data) {
+	
+	$table = App::getInstance()->getTable($this->tableName);
+
+	$table->update($this->{$this->id}, $data);
+
+	$this->fill($data);
+
+	return $this;
 }
 public function all() {
 	$table = App::getInstance()->getTable($this->tableName);
@@ -65,18 +72,30 @@ public function loadByCol($col, $value ) {
 		if (empty($entity)) {
 			return null;
 		}
-		return (object)$entity;
+		return $entity;
+
 }
-  public function fill( $row ) {
+public function fill( $row ) {
 		// fill all properties from array
 		// var_dump($row);
+
 		if (!is_array($row)) {
-			foreach ($row as $key => $value) {
-				$this->values[$key] = $row->$key;
+			$row_keys = array_keys($this->values);
+			foreach ($row_keys as $key) {
+				// var_dump($key);
+				if (array_key_exists($key, $row)) {
+					// var_dump($row[$key]);
+					$this->{$key} = $row->{$key};
+				}
 			}
 		} else {
-			foreach ($row as $key => $value) {
-					$this->values[$key] = $row[$key];
+			$row_keys = array_keys($this->values);
+			foreach ($row_keys as $key) {
+				// var_dump($key);
+				if (array_key_exists($key, $row)) {
+					// var_dump($row[$key]);
+					$this->{$key} = $row[$key];
+				}
 			}
 		}
 		// var_dump($row);
@@ -86,7 +105,7 @@ public function loadByCol($col, $value ) {
 	public function insert() {
 		$table = App::getInstance()->getTable($this->tableName);
 		// var_dump($this->values);
-		$table->insert($this->values);
+		$table->insert($this);
 		return App::getInstance()->getDb()->lastInsertId();
 	}
 }
