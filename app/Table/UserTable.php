@@ -35,8 +35,9 @@ class UserTable extends Table {
      * @param array $data
      * @return object
      */
-    public function insert(array $data) {
-        // var_dump($data);
+    public function insert($data) {
+        var_dump($data);
+        if (is_array($data)) {
         return $this->query("INSERT INTO {$this->table} (
             email,
             mdp,
@@ -70,6 +71,42 @@ class UserTable extends Table {
             'created_by' => $data['created_by']
         ],
         true);
+    } else {
+        return $this->query("INSERT INTO {$this->table} (
+            email,
+            mdp,
+            user_type,
+            nom,
+            prenom,
+            civilite,
+            valide,
+            changeMDP,
+            created_by
+        ) VALUES (
+            :email,
+            :mdp,
+            :user_type,
+            :nom,
+            :prenom,
+            :civilite,
+            :valide,
+            :changeMDP,
+            :created_by
+        )",
+        [
+            'email' => $data->email,
+            'mdp' => $data->mdp,
+            'user_type' => $data->user_type,
+            'nom' => $data->nom,
+            'prenom' => $data->prenom,
+            'civilite' => $data->civilite,
+            'valide' => $data->valide,            
+            'changeMDP' => $data->changeMDP,
+            'created_by' => $data->created_by
+        ],
+        true);
+
+    }
     }
      /**
      * UPDATE query via /modification

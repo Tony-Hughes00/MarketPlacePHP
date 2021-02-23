@@ -2,7 +2,7 @@ This is the backoffice profile
 
 <div class="row">
 <?php
-var_dump($user->boutique);
+// var_dump($user);
 
     foreach ($user->boutique as $b) {
       echo '<div class="col"><a href="boutiqueById.' . $b->id_boutique . '"><i class="far fa-edit" alt="modifier"></i></a>';

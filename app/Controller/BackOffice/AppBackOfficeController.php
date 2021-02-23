@@ -5,9 +5,10 @@ namespace App\Controller\BackOffice;
 use Core\Controller\Controller;
 use \App;
 use Core\Auth\DbAuth;
+use App\Business;
 
 class AppBackOfficeController extends Controller {
-
+    protected $businessLayer;
     /**
      * Admin template for views
      *
@@ -69,12 +70,21 @@ class AppBackOfficeController extends Controller {
         }
     }
 
-    public function notFound() :string{
+    public function notFound() :string {
         App::getInstance()->title = 'Page introuvable' .  App::getInstance()->title;
         header($_SERVER['SERVER_PROTOCOL'] . ' 404 Forbidden');
         (isset($_SESSION['marketplace']['statut'])) ? $this->template = 'default' : $this->template = 'default';
         $this->render('errors.404');
         die('404 not found');
     }
+    protected function renderPage(string $view, array $vars = []) {
+        // var_dump($vars);
+        $profileBusiness = new business\ProfileBusiness();
 
+        $vars['user'] = $profileBusiness->getProfil();
+// var_dump($vars);
+        $this->render($view, $vars);
+
+    }
+    
 }

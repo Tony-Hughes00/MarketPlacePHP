@@ -6,7 +6,7 @@ use Core\Entity;
 use App\Business;
 
 class UserController extends AppBackOfficeController {
-  protected $businessLayer;
+  // protected $businessLayer;
 
     public function __construct() {
         parent::__construct();
@@ -20,15 +20,15 @@ class UserController extends AppBackOfficeController {
      * @return void    
      * 
      * */
-    // public function get() {
-    // //   App::getInstance()->title = 'Inscription' .  App::getInstance()->title;
-    //   $this->Titre('Inscription');
+    public function get() {
+    //   App::getInstance()->title = 'Inscription' .  App::getInstance()->title;
+      $this->Titre('Inscription');
 
-    //   $explodeURI = explode('.', $_SERVER['REQUEST_URI']);
-    //   $userType = end($explodeURI);
+      $explodeURI = explode('.', $_SERVER['REQUEST_URI']);
+      $userType = end($explodeURI);
 
-    //   $this->render('BackOffice.inscription', compact('userType'));
-    // }
+      $this->render('BackOffice.inscription', compact('userType'));
+    }
     /**
      * Function render admin PDF view
      *
@@ -43,12 +43,13 @@ class UserController extends AppBackOfficeController {
      public function inscription() {
         //  App::getInstance()->title = 'Inscription réussie' .  App::getInstance()->title;
         $this->Titre('Inscription réussie');
-
+var_dump($_REQUEST);
          $userData['email'] = $_POST['ins_email'];
          $userData['user_type'] = "prop";
          $userData['nom'] = $_POST['ins_nom'];
          $userData['prenom'] = $_POST['ins_prenom'];
          $userData['civilite'] = $_POST['ins_civilite'];
+         $userData['ins_mdp'] = $_POST['ins_mdp'];
 
          $resBody = $this->businessLayer->inscription($userData);
          if ($resBody->user) {

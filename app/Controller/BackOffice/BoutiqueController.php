@@ -8,7 +8,7 @@ use App\Business;
 
 class BoutiqueController extends AppBackOfficeController {
   
-  protected $businessLayer;
+  // protected $businessLayer;
 
   public function __construct() {
     parent::__construct();
@@ -21,8 +21,8 @@ class BoutiqueController extends AppBackOfficeController {
     $id_boutique = intval(end($idClean));
 
     $boutique = $this->businessLayer->getById($id_boutique);
-var_dump($boutique);
-    $this->render('backoffice.boutique', compact('boutique'));
+// var_dump($boutique);
+    $this->renderPage('backoffice.boutique', compact('boutique'));
 
   }
   public function boutique() {
@@ -43,7 +43,7 @@ var_dump($boutique);
 
   }
   public function update() {
-    var_dump($_FILES);
+    // var_dump($_FILES);
     var_dump($_REQUEST);
     $id_boutique = 0;
     if (isset($_REQUEST['id_boutique']) && ($_REQUEST['id_boutique'] > 0)) {
@@ -52,9 +52,9 @@ var_dump($boutique);
 
     $boutique = $this->businessLayer->update($id_boutique, $_REQUEST, $_FILES);    
 
-    // $boutique->message = "testing....";
+    var_dump($boutique);
 
     // header('location: ' . ROUTE . '/tdb.' . $boutique->id_boutique, true, 303);
-    $this->render('backoffice.boutique', compact('boutique'));
+    $this->renderPage('backoffice.boutique', compact('boutique'));
   }
 }

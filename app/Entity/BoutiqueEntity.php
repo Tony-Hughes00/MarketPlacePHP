@@ -20,8 +20,9 @@ class BoutiqueEntity extends Entity {
       (string) "id_boutique" => null,
       (string) "id_vendeur" => "",
       (string) "nom_boutique" => "",
-      (string) "img_boutique" => ""
+      (string) "img_boutique" => "",
+      (string) "cat_boutique" => "0",
+      (string) "adr_boutique" => "0"
     ];
-
   }
 }

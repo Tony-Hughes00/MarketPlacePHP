@@ -29,7 +29,10 @@ class BoutiqueBusiness extends Business {
 
     $boutiques = $this->getByCol('Boutique', 'id_boutique', $id_boutique);
 // var_dump($boutiques);
-    return ($boutiques['0']);
+  $boutique = $boutiques['0'];
+  $boutique->adresse = $this->loadAdresse($boutique->adr_boutique);
+  var_dump($boutique);
+    return ($boutique);
   }
   public function update($id_boutique, $data, $files) {
     
@@ -38,20 +41,37 @@ class BoutiqueBusiness extends Business {
       $imgName = $files['boutiqueImage']['name'];
     }
     $data['img_boutique'] = $imgName;
-    var_dump($data);
+    // var_dump($data);
 
+    $adresse = $this->updateAdresse($data);
+
+    $data['adr_boutique'] = $adresse->id_adresse;
     if ($id_boutique > 0) {
       $boutique = $this->load('Boutique', 'id_boutique', $data['id_boutique']);
+
+      if (is_array($boutique) && count($boutique) > 0) {
+        $boutique = $boutique[0];
+      }
       $boutique = $boutique->update($data);
-      var_dump($boutique);
+      // var_dump($boutique);
     } else {
       $data['id_vendeur'] = $this->UserId();
-      $boutique = $this->businessLayer->create('Boutique', $data);
-      var_dump($boutique);
+      $boutique = $this->create('Boutique', $data);
+      // var_dump($boutique);
     }
     $tele = new TelechargementBusiness();
     $tele->upload($boutique->id_boutique, $files);
 
+    $boutique->adresse = $this->loadAdresse($boutique->adr_boutique);
+
     return $boutique;
+  }
+  private function updateAdresse($data) {
+    $adreseBusiness = new App\business\AdresseBusiness();
+    return $adreseBusiness->update($data);
+  }
+  private function loadAdresse($id) {
+    $adreseBusiness = new App\business\AdresseBusiness();
+    return $adreseBusiness->loadById($id);
   }
 }

@@ -23,7 +23,7 @@ class TdbBusiness extends Business {
     public function getTdb($id_boutique) {
 
       $boutique = $this->load('Boutique', 'id_boutique', $id_boutique);
-var_dump($boutique);
+// var_dump($boutique);
       return $boutique[0];
     }
 }

@@ -7,7 +7,6 @@ use Core\Entity;
 use App\Business;
 
 class ProfilController extends AppBackOfficeController {
-  protected $businessLayer;
 
     public function __construct() {
         parent::__construct();
@@ -15,10 +14,6 @@ class ProfilController extends AppBackOfficeController {
 
     }
     public function getProfil() {
-      $this->Titre('Profil');
-
-      $user = $this->businessLayer->getProfil();
-      // var_dump($user);
-      $this->render('backoffice.profil', compact('user'));
+      $this->renderpage('backoffice.profil');
     }
   }

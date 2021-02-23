@@ -7,7 +7,7 @@ use Core\Entity;
 use App\Business;
 
 class TdbController extends AppBackOfficeController {
-  protected $businessLayer;
+  // protected $businessLayer;
 
     public function __construct() {
         parent::__construct();
@@ -21,13 +21,14 @@ class TdbController extends AppBackOfficeController {
       $idClean = array_filter($idParts);
       $id_boutique = intval(end($idClean));
 
-var_dump($_SESSION);
+// var_dump($_SESSION);
       // $this->console_log($this->UserId());
 
       $boutique = $this->businessLayer->getTdb($id_boutique);
       // $this->console_log($user);
       // var_dump($user);
       // $test = $_SESSION;
-      $this->render('backoffice.tdb', compact('boutique'));
+      // $data[] = $boutique;
+      $this->renderPage('backoffice.tdb', compact('boutique'));
     }
   }

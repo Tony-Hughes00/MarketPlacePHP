@@ -42,32 +42,41 @@ class BoutiqueTable extends Table {
         return $this->query("INSERT INTO {$this->table} (
             id_vendeur,
             nom_boutique,
-            img_boutique
+            img_boutique,
+            cat_boutique,
+            adr_boutique
         ) VALUES (
             :id_vendeur,
             :nom_boutique,
-            :img_boutique
+            :img_boutique,
+            :cat_boutique,
+            :adr_boutique
         )",
         [
             'id_vendeur' => $data->id_vendeur,
             'nom_boutique' => $data->nom_boutique,
-            'img_boutique' => $data->img_boutique
+            'img_boutique' => $data->img_boutique,
+            'cat_boutique' => $data->cat_boutique,
+            'adr_boutique' => $data->adr_boutique
         ],
         true);
     }
     public function update($id, array $data) {
-        var_dump($data);
-        var_dump($id);
+
       return $this->query("UPDATE {$this->table} SET
                   id_vendeur = :id_vendeur,
                   nom_boutique = :nom_boutique,
-                  img_boutique = :img_boutique
+                  img_boutique = :img_boutique,
+                  cat_boutique = :cat_boutique,
+                  adr_boutique = :adr_boutique
               WHERE id_boutique = :id",
               [
                   'id' => $id,
                   'id_vendeur' => $data['id_vendeur'],
                   'nom_boutique' => $data['nom_boutique'],
-                  'img_boutique' => $data['img_boutique']
+                  'img_boutique' => $data['img_boutique'],
+                  'cat_boutique' => $data['cat_boutique'],
+                  'adr_boutique' => $data['adr_boutique']
               ],
               true);
       }

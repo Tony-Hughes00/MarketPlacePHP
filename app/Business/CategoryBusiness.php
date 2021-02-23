@@ -15,10 +15,7 @@ class CategoryBusiness extends Business {
   }
   public function getAll() {
     $categories = $this->loadAll('Category');
-    // $catDir = ROOT . '/' . RACINE . 'images/Categorie/';
-    // foreach($categories as $c) {
-    //   $c->img_category = $catDir . $c->img_category;
-    // }
+
     return $categories;
   }
 }

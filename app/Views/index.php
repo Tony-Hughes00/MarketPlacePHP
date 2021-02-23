@@ -2,32 +2,25 @@
 
 <div class="container col-lg-9" id="intro">
     <div class="row mx-5 mx-lg-1 px-2 px-lg-0">
-        <div class="col-12 col-md-6 shadow-lg">
-            <div class="text-center shadow-lg p-3 m-1 rounded border border-primary" 
-                 style="background-color:#f0f7a1;border:3px #aaa solid !important;"">
-                <div class="text-center">
-                    <img src="<?= RACINE ?>images/icons8-passager-80.png">
-                </div>
-                <a href="<?= ROUTE ?>inscription.passager" 
-                    style="text-decoration:none;">
-                    <button class="btn-ins btn btn-primary btn-block" 
-                    style="font-size:28px;">Connexion</button>
-                </a>
-            </div>
+        <div class="col-12 col-md-4 shadow-lg">
+
         </div>
 
-        <div class="col-12 col-md-6 shadow-lg">
+        <div class="col-12 col-md-4 shadow-lg">
             <div class="text-center shadow-lg p-3 m-1 rounded border border-primary" 
                         style="background-color:#f0f7a1;border:3px #aaa solid !important;"">
                 <div class="text-center">
-                    <img src="<?= RACINE ?>images/icons8-chauffeur-80.png">
+                    <img src="<?= RACINE ?>images/Categorie/boutique.png" width="100%">
                 </div>
-                <a href="<?= ROUTE ?>inscription.chauffeur" 
+                <a href="inscription" 
                         style="text-decoration:none;">
                 <button class="btn-ins btn btn-primary btn-block" 
                         style="font-size:28px;">Inscription</button>
                 </a>
             </div>
+        </div>
+        <div class="col-12 col-md-4 shadow-lg">
+
         </div>
     </div>
 </div>

@@ -6,7 +6,7 @@
         <div class="row">
           <div class="col-12 col-md-6 footer-pnm-a-cont">
               <b><a href="https://mosc.fr/" target="_blank" style="text-decoration:none; color:black;">
-                      <img src="<?= RACINE ?>images/MarketIcon.jpg" alt="Logo MOSC"
+                      <img src="<?= RACINE ?>images/MarketIcon.png" alt="Logo MOSC"
                           style="max-width:250px;" class="contact-logo img-fluid mb-3">
                   </a></b>
           </div>

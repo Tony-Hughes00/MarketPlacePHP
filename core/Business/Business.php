@@ -33,7 +33,7 @@ private function getEntity($tableName) {
 	}
 	public function load($table, $col, $val) {
 		// la requête doit retourne une seule record
-		return $this->getEntity($table)->loadByCol($col, $val)[0];
+		return $this->getEntity($table)->loadByCol($col, $val);
 	}
 	public function loadAll($table) {
 		// var_dump(($table));
@@ -61,5 +61,12 @@ private function getEntity($tableName) {
 	public function console_log($message) {
 		App::console_log($message);
 	}
+	// public function getProfil() {
+	// 	$user = $this->load('User', 'id_user', $this->UserId());
 
+	// 	if ($user) {
+	// 		$user->boutique = $this->getByCol('Boutique', 'id_vendeur', $user->id_user);
+	// 	}
+	// 	return $user;
+	// }
 }

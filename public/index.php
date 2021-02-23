@@ -62,8 +62,9 @@ $router->options('/api/categories', 'api.AppApi.options');
 $router->get('/api/categories', 'api.category.getAll');
 // backoffice
 // inscription
-$router->get('/inscription', 'backoffice.User.get');
+$router->get('/inscription', 'backoffice.user.get');
 $router->post('/inscription', 'backoffice.User.inscription');
+
 $router->get('/logout', 'backoffice.User.logout');
 $router->post('/connexion', 'backoffice.User.connexion');
 

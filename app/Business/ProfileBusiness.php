@@ -24,7 +24,9 @@ class ProfileBusiness extends Business {
       // $user = (object) array();
       $user = $this->load('User', 'id_user', $this->UserId());
 
-      $user->boutique = $this->getByCol('Boutique', 'id_vendeur', $user->id_user);
+      if ($user) {
+        $user->boutique = $this->getByCol('Boutique', 'id_vendeur', $user->id_user);
+      }
       return $user;
     }
 }

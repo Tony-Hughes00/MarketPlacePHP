@@ -44,6 +44,7 @@ public static function withRow( array $row ) {
 		return $instance;
 }
 public function create($row) {
+	$this->fill($this->values);
 	$this->fill($row);
 	$this->insert();
 	return $this;
@@ -73,6 +74,16 @@ public function loadByCol($col, $value ) {
 			return null;
 		}
 		return $entity;
+
+}
+public function loadById($value ) {
+
+	$table = App::getInstance()->getTable($this->tableName);
+	$entity = $table->selectBy($this->id, $value);
+	if (empty($entity)) {
+		return null;
+	}
+	return $entity;
 
 }
 public function fill( $row ) {
@@ -105,7 +116,9 @@ public function fill( $row ) {
 	public function insert() {
 		$table = App::getInstance()->getTable($this->tableName);
 		// var_dump($this->values);
+		// var_dump($this);
 		$table->insert($this);
-		return App::getInstance()->getDb()->lastInsertId();
+		$this->{$this->id} = App::getInstance()->getDb()->lastInsertId();
+		return $this;
 	}
 }

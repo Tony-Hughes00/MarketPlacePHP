@@ -35,10 +35,17 @@ class EntityFactory {
         break;
       case 'Category':
         $entity = new App\Entity\CategoryEntity();
+        break;     
+      case 'Commune':
+        $entity = new App\Entity\CommuneEntity();
+        break;      
+      case 'Adresse':
+        $entity = new App\Entity\AdresseEntity();
         break;
       default:
         break;
     }
+    // $entity = new App\Entity\{$table}Entity();
     // var_dump($col);
     // var_dump($value);
     return $entity;

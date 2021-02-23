@@ -56,7 +56,7 @@ class UserBusiness extends Business {
      * @return void
      */
     public function inscription($data): object {
-
+var_dump($data);
       //  $userData['civilite'] = $_POST['ins_civilite'];
       $resBody = (object) array();
       $resBody->testMessage = 'creating user...';
@@ -69,9 +69,10 @@ class UserBusiness extends Business {
       }
       // var_dump($data);      //  var_dump('creating user....');
        if (!$userExists) {
-           $hash = password_hash($data['mdp'], PASSWORD_ARGON2I);
+           $hash = password_hash($data['ins_mdp'], PASSWORD_ARGON2I);
 
            $data['mdp'] = $hash;
+           var_dump($data);
            $user = $this->create('User', $data);
            $resBody->user = $user;
 

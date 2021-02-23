@@ -1,4 +1,7 @@
 <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top shadow p-3 mb-5 rounded"> -->
+<?php
+// var_dump($user);
+?>
 <div class="row">
     <div class="col-12">
 <nav class="navbar navbar-expand-lg navbar-light sticky-top p-3 mb-5 rounded">
@@ -17,9 +20,22 @@
             <li class="nav-item active">
                 <a class="nav-link" href="<?=ROUTE?>">ACCUEIL<span class="sr-only">(actuel)</span></a>
             </li>
+            <?php if (count($user->boutique) == 1) { ?>
             <li class="nav-item active">
-                <a class="nav-link" href="<?=ROUTE?>tdb">Tableau de Bord<span class="sr-only">(actuel)</span></a>
+                <a class="nav-link" href="<?=ROUTE?>tdb.<?=$user->boutique[0]->id_boutique?>">Tableau de Bord<span class="sr-only">(actuel)</span></a>
             </li>
+            <?php } else if (count($user->boutique) > 1) { ?>
+            <li class="nav-item dropdown">
+                <a class="nav-link" id="navbarDropdown1" role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">Tableau de Bord
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown1" style="font-size:20px;">
+                    <?php foreach($user->boutique as $b) {
+                        echo '<a class="dropdown-item" href="' . ROUTE . 'tdb.' . $b->id_boutique . '">' . $b->nom_boutique . '</a>';                   }
+                    ?>
+                </div>
+            </li>
+            <?php } ?>
             <li class="nav-item active">
                 <a class="nav-link" href="<?=ROUTE?>profil">Profil<span class="sr-only">(actuel)</span></a>
             </li>            
@@ -100,7 +116,9 @@
     <?php 
     // var_dump($_SESSION); 
     if (isset($_SESSION['marketplace'])) {
+        echo "Bienvenue ";
         echo $_SESSION['marketplace']['civilite'] . " " . $_SESSION['marketplace']['prenom'] . " " . $_SESSION['marketplace']['nom'];
+        echo ' proprieteur depuis ' . $_SESSION['marketplace']['created_at'];
     }
     ?>
     </div>
