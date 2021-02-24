@@ -60,6 +60,9 @@ $router->get('/api/boutique', 'api.boutique.getAll');
 
 $router->options('/api/categories', 'api.AppApi.options');
 $router->get('/api/categories', 'api.category.getAll');
+
+$router->options('/api/produits', 'api.AppApi.options');
+$router->get('/api/produits', 'api.produit.getFiltre');
 // backoffice
 // inscription
 $router->get('/inscription', 'backoffice.user.get');
@@ -82,6 +85,8 @@ $router->post('/boutique', 'backoffice.boutique.update');
 $router->get('/boutiqueById.:id', 'backoffice.boutique.boutiqueById');
 
 $router->get('/tdb.:id', 'backoffice.tdb.getTdb');
+$router->get('/produit.:id_boutique', 'backoffice.produit.get');
+$router->post('/produit.:id_boutique', 'backoffice.produit.post');
 // $router->post('/tdb.:id', 'backoffice.tdb.getTdb');
 
 $router->run();

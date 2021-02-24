@@ -26,11 +26,11 @@ class BoutiqueController extends AppBackOfficeController {
 
   }
   public function boutique() {
-// var_dump(($_SESSION));
+
     $userId = $this->businessLayer->UserId();
 
     $boutique = $this->businessLayer->getByUser($userId);
-// var_dump($boutique);
+
     $countBoutique = count((array)$boutique);
     if ($countBoutique == 0 ) {
       $this->render('backoffice.boutique', compact('boutique'));

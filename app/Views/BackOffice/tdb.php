@@ -19,7 +19,14 @@ var_dump($boutique);
     Stock
   </div>
   <div class="col-12 col-md-4">
-    products
+    produits
+    <div>
+    <?php
+      echo '<div class="col"><a href="produit.' . $boutique->id_boutique . '">';
+      echo '<i class="far fa-edit" alt="modifier"></i>';
+      echo '</a>';
+    ?>
+  </div>
   </div>
 
 </div>

@@ -39,6 +39,9 @@ private function getEntity($tableName) {
 		// var_dump(($table));
 		return $this->getEntity($table)->all();
 	}
+	public function loadFiltre($table, $filtre) {
+		return $this->getEntity($table)->all();
+	}
 	public function getByCol($table, $col, $val)
 	{
 		return $this->getEntity($table)->loadByCol($col, $val);
@@ -61,12 +64,4 @@ private function getEntity($tableName) {
 	public function console_log($message) {
 		App::console_log($message);
 	}
-	// public function getProfil() {
-	// 	$user = $this->load('User', 'id_user', $this->UserId());
-
-	// 	if ($user) {
-	// 		$user->boutique = $this->getByCol('Boutique', 'id_vendeur', $user->id_user);
-	// 	}
-	// 	return $user;
-	// }
 }

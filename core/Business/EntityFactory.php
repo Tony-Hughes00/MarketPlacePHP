@@ -42,6 +42,9 @@ class EntityFactory {
       case 'Adresse':
         $entity = new App\Entity\AdresseEntity();
         break;
+      case 'Produit':
+        $entity = new App\Entity\ProduitEntity();
+        break;
       default:
         break;
     }

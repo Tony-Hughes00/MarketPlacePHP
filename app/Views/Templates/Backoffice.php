@@ -2,6 +2,7 @@
 if (!isset($_COOKIE['animWatched'])) {
     setcookie("animWatched", "1", time()+60*60*24*100);
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">

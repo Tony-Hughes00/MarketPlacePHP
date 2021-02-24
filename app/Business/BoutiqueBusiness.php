@@ -31,7 +31,7 @@ class BoutiqueBusiness extends Business {
 // var_dump($boutiques);
   $boutique = $boutiques['0'];
   $boutique->adresse = $this->loadAdresse($boutique->adr_boutique);
-  var_dump($boutique);
+  // var_dump($boutique);
     return ($boutique);
   }
   public function update($id_boutique, $data, $files) {

@@ -1,10 +1,10 @@
-#form-backoffice {
+.form-backoffice {
   text-align: center;
   position: relative;
   margin-top: 20px;
 }
 
-#form-backoffice fieldset .form-card {
+.form-backoffice fieldset .form-card {
   /* background: whitesmoke; */
   background: whitesmoke;
   border: 0 none;
@@ -17,7 +17,7 @@
   position: relative
 }
 
-#form-backoffice fieldset {
+.form-backoffice fieldset {
   /* background: white; */
   border: 0 none;
   border-radius: 0.5rem;
@@ -28,11 +28,11 @@
   position: relative
 }
 
-#form-backoffice fieldset:not(:first-of-type) {
+.form-backoffice fieldset:not(:first-of-type) {
   display: none
 }
 
-#form-backoffice fieldset .form-card {
+.form-backoffice fieldset .form-card {
   text-align: left;
   /* color: #9E9E9E; */
   color: #888;
@@ -41,12 +41,12 @@
   background-color: skyblue;
   color: white;
 }
-#form-backoffice label {
+.form-backoffice label {
   margin-bottom: 0;
 }
 
-#form-backoffice input,
-#form-backoffice textarea {
+.form-backoffice input,
+.form-backoffice textarea {
   padding: 0px 8px 4px 8px;
   border: none;
   /* border-bottom: 1px solid #ccc; */
@@ -63,8 +63,8 @@
   transition: all 100ms ease;
 }
 
-#form-backoffice input:focus,
-#form-backoffice textarea:focus {
+.form-backoffice input:focus,
+.form-backoffice textarea:focus {
   -moz-box-shadow: none !important;
   -webkit-box-shadow: none !important;
   box-shadow: none !important;
@@ -75,26 +75,26 @@
   transition: all 100ms ease;
 }
 
-#form-backoffice input:valid,
-#form-backoffice textarea:valid {
+.form-backoffice input:valid,
+.form-backoffice textarea:valid {
   /* border-bottom: 3px solid #9ac526; */
   border-bottom: 3px solid #9ac526;
   transition: all 100ms ease;
 }
 
-#form-backoffice .radio-label {
+.form-backoffice .radio-label {
   color: #2C3E50;
 }
 
-#form-backoffice input#ins_nom {
+.form-backoffice input#ins_nom {
   text-transform: uppercase;
 }
 
-#form-backoffice input#ins_prenom {
+.form-backoffice input#ins_prenom {
   text-transform: capitalize;
 }
 
-#form-backoffice .action-button {
+.form-backoffice .action-button {
   width: 200px;
   background: skyblue;
   font-weight: bold;
@@ -106,26 +106,26 @@
   padding: 10px 5px;
   /* margin: 0 5px; */
 }
-#form-backoffice input[type=submit] {
+.form-backoffice input[type=submit] {
   width: 100%;
   background: var(--green-title-underline);
   border-bottom: 3px solid #2e502c;
 }
 
-#form-backoffice input[type=submit]:disabled {
+.form-backoffice input[type=submit]:disabled {
   background: #888;
   border-bottom: 3px solid #333;
   opacity: 0.5;
 }
 /* Compte */
-#form-backoffice #progressbar #form-step-1:before {
+.form-backoffice #progressbar #form-step-1:before {
   /* font-family: "Font Awesome 5 Free";
   content: "\f007"; */
   content: "1";
   font-weight: 900;
 }
 /* Identité */
-#form-backoffice #progressbar #form-step-2:before {
+.form-backoffice #progressbar #form-step-2:before {
   /* font-family: "Font Awesome 5 Free";
   content: "\f2c2"; */
   content: "2";
@@ -133,7 +133,7 @@
 }
 
 /* Contact */
-#form-backoffice #progressbar #form-step-3:before {
+.form-backoffice #progressbar #form-step-3:before {
   /* font-family: "Font Awesome 5 Free";
   content: "\f879"; */
   content: "3";
